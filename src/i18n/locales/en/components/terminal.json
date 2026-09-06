@@ -1,0 +1,78 @@
+{
+  "section": {
+    "label": "SYSTEM TERMINAL",
+    "title": "ENTER THE SYSTEM",
+    "description": "Type a command. The system will respond.",
+    "hint": "Type help to display available commands."
+  },
+
+  "window": {
+    "title": "fsociety_terminal",
+    "status": "SECURE CONNECTION",
+    "user": "anonymous",
+    "host": "fsociety",
+    "placeholder": "enter command..."
+  },
+
+  "welcome": {
+    "line1": "Welcome to the secure FSOCIETY terminal.",
+    "line2": "Your identity has been masked.",
+    "line3": "Type \"help\" to display available commands."
+  },
+
+  "commands": {
+    "help": {
+      "title": "Available commands:",
+      "help": "help      - display available commands",
+      "whoami": "whoami    - display current identity",
+      "about": "about     - information about this project",
+      "fsociety": "fsociety  - initialize fsociety protocol",
+      "status": "status    - display system status",
+      "history": "history   - display command history",
+      "clear": "clear     - clear the terminal",
+      "friend": "friend    - ..."
+    },
+
+    "whoami": {
+      "line1": "USER      : ANONYMOUS",
+      "line2": "IDENTITY  : HIDDEN",
+      "line3": "ACCESS    : LIMITED",
+      "line4": "STATUS    : WATCHED"
+    },
+
+    "about": {
+      "line1": "MR_ROBOT_VIBE",
+      "line2": "An interactive experience built with React and Tailwind CSS.",
+      "line3": "Designed to recreate the atmosphere of Mr. Robot on the web.",
+      "line4": "STATUS: DEVELOPMENT"
+    },
+
+    "fsociety": {
+      "line1": "[FSOCIETY PROTOCOL INITIALIZED]",
+      "line2": "We are inside the system.",
+      "line3": "Control is often an illusion.",
+      "line4": "Every system has a vulnerability."
+    },
+
+    "status": {
+      "line1": "NETWORK     : SECURE",
+      "line2": "IDENTITY    : ANONYMOUS",
+      "line3": "LOCATION    : HIDDEN",
+      "line4": "ENCRYPTION  : ACTIVE",
+      "line5": "SURVEILLANCE: DETECTED"
+    },
+
+    "history": {
+      "empty": "Command history is empty."
+    },
+
+    "friend": {
+      "line1": "Hello, friend.",
+      "line2": "So you found the hidden command.",
+      "line3": "The system is watching you..."
+    },
+
+    "unknown": "Command not found: {{command}}",
+    "unknownHint": "Type \"help\" to display available commands."
+  }
+}

@@ -11,7 +11,9 @@
     "description": "The world is a system.",
     "descriptionHighlight": "Systems can be rewritten.",
     "enter": "ENTER THE SYSTEM",
-    "whoAmI": "WHO AM I?"
+    "whoAmI": "WHO AM I?",
+    "classification": "CLASSIFIED // 01",
+    "warning": "YOU ARE BEING WATCHED"
   },
 
   "system": {

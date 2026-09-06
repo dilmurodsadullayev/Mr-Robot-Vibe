@@ -1,216 +1,268 @@
 import { useTranslation } from "react-i18next";
 
+import SystemHUD from "../../components/SystemHUD/SystemHUD";
+import useMouseParallax from "../../hooks/useMouseParallax";
+
 function HeroSection() {
   const { t } = useTranslation("home");
+
+  const { x, y } = useMouseParallax();
+
+  const scrollToTerminal = () => {
+    document
+      .getElementById("terminal")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  };
 
   return (
     <section
       id="home"
       className="
+        hero
         relative
-        flex
         min-h-[calc(100vh-73px)]
-        items-center
         overflow-hidden
-        px-6
-        py-20
-        lg:px-8
       "
     >
+      {/* Ambient red glow */}
+
       <div
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-1/2
-          h-[500px]
-          w-[500px]
-          -translate-x-1/2
-          -translate-y-1/2
-          rounded-full
-          bg-red-700/10
-          blur-[160px]
-        "
+        className="hero__ambient"
+        style={{
+          transform: `
+            translate(
+              calc(-50% + ${x * 25}px),
+              calc(-50% + ${y * 25}px)
+            )
+          `,
+        }}
       />
+
+      {/* Background ghost text */}
+
+      <div
+        className="hero__ghost-text"
+        style={{
+          transform: `
+            translate(
+              ${x * -10}px,
+              calc(-50% + ${y * -5}px)
+            )
+          `,
+        }}
+      >
+        FSOCIETY
+      </div>
+
+      {/* Vertical lines */}
+
+      <div className="hero__vertical-line hero__vertical-line--one" />
+      <div className="hero__vertical-line hero__vertical-line--two" />
+
+      {/* System HUD */}
+
+      <SystemHUD />
+
+      {/* Main hero content */}
 
       <div
         className="
           relative
           z-10
           mx-auto
-          w-full
+          flex
+          min-h-[calc(100vh-73px)]
           max-w-7xl
+          items-center
+          px-6
+          py-20
+          lg:px-8
         "
       >
-        <div
-          className="
-            mb-10
-            flex
-            items-center
-            gap-3
-            text-[11px]
-            tracking-wider
-            text-zinc-600
-          "
-        >
-          <span className="text-red-600">
-            {t("terminal.user")}
-          </span>
+        <div className="w-full">
+          {/* Classification */}
 
-          <span>:</span>
+          <div className="mb-8 flex items-center gap-4">
+            <div className="h-px w-10 bg-red-700" />
 
-          <span>~$</span>
+            <span
+              className="
+                text-[9px]
+                font-bold
+                tracking-[0.35em]
+                text-red-700
+              "
+            >
+              {t("hero.classification")}
+            </span>
+          </div>
 
-          <span className="text-zinc-400">
-            {t("terminal.command")}
-          </span>
+          {/* Terminal command */}
 
-          <span className="terminal-cursor" />
-        </div>
-
-        <p
-          className="
-            mb-5
-            text-[10px]
-            font-bold
-            tracking-[0.35em]
-            text-zinc-600
-          "
-        >
-          // {t("hero.eyebrow")}
-        </p>
-
-        <h1
-          className="
-            max-w-6xl
-            text-6xl
-            font-black
-            uppercase
-            leading-[0.82]
-            tracking-[-0.07em]
-            text-red-600
-            sm:text-7xl
-            md:text-8xl
-            lg:text-[120px]
-          "
-        >
-          <span
-            className="glitch block"
-            data-text={t("hero.titleFirst")}
+          <div
+            className="
+              mb-8
+              flex
+              items-center
+              gap-2
+              text-[10px]
+              tracking-[0.08em]
+              md:text-[11px]
+            "
           >
-            {t("hero.titleFirst")}
-          </span>
+            <span className="text-red-600">
+              {t("terminal.user")}
+            </span>
 
-          <span
-            className="glitch block"
-            data-text={t("hero.titleSecond")}
-          >
-            {t("hero.titleSecond")}
-          </span>
-        </h1>
+            <span className="text-zinc-700">
+              :
+            </span>
 
-        <div
-          className="
-            mt-12
-            max-w-xl
-            border-l
-            border-red-700
-            pl-5
-          "
-        >
+            <span className="text-zinc-500">
+              ~$
+            </span>
+
+            <span className="text-zinc-400">
+              {t("terminal.command")}
+            </span>
+
+            <span className="terminal-cursor" />
+          </div>
+
+          {/* Eyebrow */}
+
           <p
             className="
-              text-sm
-              leading-7
-              text-zinc-600
-              md:text-base
+              mb-5
+              text-[9px]
+              font-bold
+              tracking-[0.4em]
+              text-zinc-700
+              md:text-[10px]
             "
           >
-            {t("hero.description")}
-
-            <br />
-
-            <span className="text-zinc-300">
-              {t("hero.descriptionHighlight")}
-            </span>
+            // {t("hero.eyebrow")}
           </p>
-        </div>
 
-        <div
-          className="
-            mt-10
-            flex
-            flex-wrap
-            gap-4
-          "
-        >
-          <button
-            type="button"
+          {/* Main title */}
+
+          <h1 className="hero__title">
+            <span
+              className="glitch block"
+              data-text={t("hero.titleFirst")}
+            >
+              {t("hero.titleFirst")}
+            </span>
+
+            <span
+              className="glitch block"
+              data-text={t("hero.titleSecond")}
+            >
+              {t("hero.titleSecond")}
+            </span>
+          </h1>
+
+          {/* Description */}
+
+          <div
             className="
-              border
-              border-red-700
-              bg-red-700
-              px-7
-              py-3
-              text-[11px]
-              font-bold
-              tracking-[0.2em]
-              text-white
-              transition-all
-              duration-300
-
-              hover:bg-transparent
-              hover:text-red-500
-              hover:shadow-[0_0_35px_rgba(185,28,28,0.25)]
+              mt-10
+              max-w-xl
+              border-l
+              border-red-800
+              pl-5
+              md:mt-12
             "
           >
-            {t("hero.enter")}
-          </button>
+            <p
+              className="
+                text-sm
+                leading-7
+                text-zinc-600
+                md:text-base
+              "
+            >
+              {t("hero.description")}
 
-          <button
-            type="button"
+              <br />
+
+              <span className="text-zinc-300">
+                {t("hero.descriptionHighlight")}
+              </span>
+            </p>
+          </div>
+
+          {/* Actions */}
+
+          <div
             className="
-              border
-              border-white/15
-              px-7
-              py-3
-              text-[11px]
-              font-bold
-              tracking-[0.2em]
-              text-zinc-500
-              transition-all
-              duration-300
-
-              hover:border-white/30
-              hover:text-white
+              mt-10
+              flex
+              flex-wrap
+              gap-4
             "
           >
-            {t("hero.whoAmI")}
-          </button>
+            <button
+              type="button"
+              onClick={scrollToTerminal}
+              className="hero-button hero-button--primary"
+            >
+              <span>
+                {t("hero.enter")}
+              </span>
+
+              <span>
+                →
+              </span>
+            </button>
+
+            <button
+              type="button"
+              className="hero-button hero-button--secondary"
+            >
+              {t("hero.whoAmI")}
+            </button>
+          </div>
+
+          {/* Bottom system line */}
+
+          <div
+            className="
+              mt-16
+              flex
+              max-w-xl
+              items-center
+              gap-4
+              text-[8px]
+              tracking-[0.25em]
+              text-zinc-800
+              md:mt-20
+              md:text-[9px]
+            "
+          >
+            <span>
+              {t("system.label")}
+            </span>
+
+            <div className="h-px flex-1 bg-white/10" />
+
+            <span>
+              {t("system.section")}
+            </span>
+          </div>
         </div>
+      </div>
 
-        <div
-          className="
-            mt-20
-            flex
-            max-w-xl
-            items-center
-            gap-4
-            text-[9px]
-            tracking-[0.2em]
-            text-zinc-700
-          "
-        >
-          <span>
-            {t("system.label")}
-          </span>
+      {/* Surveillance warning */}
 
-          <div className="h-px flex-1 bg-white/10" />
+      <div className="hero__warning">
+        <span className="hero__warning-dot">
+          ●
+        </span>
 
-          <span>
-            {t("system.section")}
-          </span>
-        </div>
+        {t("hero.warning")}
       </div>
     </section>
   );

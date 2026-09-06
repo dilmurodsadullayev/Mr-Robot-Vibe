@@ -1,0 +1,78 @@
+{
+  "section": {
+    "label": "TIZIM TERMINALI",
+    "title": "TIZIMGA KIRISH",
+    "description": "Buyruq yozing. Tizim javob beradi.",
+    "hint": "Mavjud buyruqlarni ko‘rish uchun help yozing."
+  },
+
+  "window": {
+    "title": "fsociety_terminal",
+    "status": "XAVFSIZ ULANISH",
+    "user": "anonymous",
+    "host": "fsociety",
+    "placeholder": "buyruq yozing..."
+  },
+
+  "welcome": {
+    "line1": "FSOCIETY xavfsiz terminaliga xush kelibsiz.",
+    "line2": "Shaxsingiz yashirildi.",
+    "line3": "Mavjud buyruqlarni ko‘rish uchun \"help\" yozing."
+  },
+
+  "commands": {
+    "help": {
+      "title": "Mavjud buyruqlar:",
+      "help": "help      - mavjud buyruqlarni ko‘rsatadi",
+      "whoami": "whoami    - joriy shaxsni ko‘rsatadi",
+      "about": "about     - loyiha haqida ma'lumot",
+      "fsociety": "fsociety  - fsociety protokolini ochadi",
+      "status": "status    - tizim holatini tekshiradi",
+      "history": "history   - buyruqlar tarixini ko‘rsatadi",
+      "clear": "clear     - terminalni tozalaydi",
+      "friend": "friend    - ..."
+    },
+
+    "whoami": {
+      "line1": "USER      : ANONYMOUS",
+      "line2": "IDENTITY  : HIDDEN",
+      "line3": "ACCESS    : LIMITED",
+      "line4": "STATUS    : WATCHED"
+    },
+
+    "about": {
+      "line1": "MR_ROBOT_VIBE",
+      "line2": "React va Tailwind CSS yordamida yaratilgan interaktiv tajriba.",
+      "line3": "Maqsad — Mr. Robot atmosferasini web orqali his qilish.",
+      "line4": "STATUS: DEVELOPMENT"
+    },
+
+    "fsociety": {
+      "line1": "[FSOCIETY PROTOCOL INITIALIZED]",
+      "line2": "Biz tizim ichidamiz.",
+      "line3": "Nazorat — ko‘pincha illyuziya.",
+      "line4": "Har bir tizimda zaiflik mavjud."
+    },
+
+    "status": {
+      "line1": "NETWORK     : SECURE",
+      "line2": "IDENTITY    : ANONYMOUS",
+      "line3": "LOCATION    : HIDDEN",
+      "line4": "ENCRYPTION  : ACTIVE",
+      "line5": "SURVEILLANCE: DETECTED"
+    },
+
+    "history": {
+      "empty": "Buyruqlar tarixi bo‘sh."
+    },
+
+    "friend": {
+      "line1": "Salom, do‘stim.",
+      "line2": "Demak sen yashirin buyruqni topding.",
+      "line3": "Tizim seni kuzatmoqda..."
+    },
+
+    "unknown": "Buyruq topilmadi: {{command}}",
+    "unknownHint": "\"help\" yozib mavjud buyruqlarni ko‘ring."
+  }
+}

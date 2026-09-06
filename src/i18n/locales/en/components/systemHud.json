@@ -1,0 +1,12 @@
+{
+  "surveillance": "SURVEILLANCE",
+  "encrypted": "ENCRYPTED",
+  "network": "NETWORK",
+  "secure": "SECURE",
+  "identity": "IDENTITY",
+  "anonymous": "ANONYMOUS",
+  "location": "LOCATION",
+  "hidden": "HIDDEN",
+  "connection": "CONNECTION",
+  "active": "ACTIVE"
+}

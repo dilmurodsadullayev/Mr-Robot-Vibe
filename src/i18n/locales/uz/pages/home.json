@@ -11,7 +11,9 @@
     "description": "Dunyo — bu tizim.",
     "descriptionHighlight": "Tizimlarni esa qayta yozish mumkin.",
     "enter": "TIZIMGA KIRISH",
-    "whoAmI": "MEN KIMMAN?"
+    "whoAmI": "MEN KIMMAN?",
+    "classification": "MAXFIY // 01",
+    "warning": "SIZ KUZATILMOQDASIZ"
   },
 
   "system": {
