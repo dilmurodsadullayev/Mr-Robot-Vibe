@@ -1,0 +1,21 @@
+{
+  "terminal": {
+    "user": "root@fsociety",
+    "command": "./anonymous_init.sh"
+  },
+
+  "hero": {
+    "eyebrow": "CLASSIFIED SYSTEM ACCESS",
+    "titleFirst": "HELLO,",
+    "titleSecond": "FRIEND.",
+    "description": "The world is a system.",
+    "descriptionHighlight": "Systems can be rewritten.",
+    "enter": "ENTER THE SYSTEM",
+    "whoAmI": "WHO AM I?"
+  },
+
+  "system": {
+    "label": "MR_ROBOT_VIBE",
+    "section": "01"
+  }
+}

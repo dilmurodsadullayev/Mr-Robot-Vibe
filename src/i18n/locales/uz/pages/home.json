@@ -1,0 +1,21 @@
+{
+  "terminal": {
+    "user": "root@fsociety",
+    "command": "./anonymous_init.sh"
+  },
+
+  "hero": {
+    "eyebrow": "MAXFIY TIZIMGA KIRISH",
+    "titleFirst": "SALOM,",
+    "titleSecond": "DO‘STIM.",
+    "description": "Dunyo — bu tizim.",
+    "descriptionHighlight": "Tizimlarni esa qayta yozish mumkin.",
+    "enter": "TIZIMGA KIRISH",
+    "whoAmI": "MEN KIMMAN?"
+  },
+
+  "system": {
+    "label": "MR_ROBOT_VIBE",
+    "section": "01"
+  }
+}
