@@ -1,0 +1,315 @@
+/* ============================= */
+/* Hero */
+/* ============================= */
+
+.hero {
+  position: relative;
+
+  background:
+    radial-gradient(
+      circle at 72% 45%,
+      rgba(127, 29, 29, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(
+      120deg,
+      #050505,
+      #000 60%
+    );
+}
+
+.hero__ambient {
+  position: absolute;
+
+  top: 50%;
+  left: 68%;
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(185, 28, 28, 0.08);
+
+  filter: blur(130px);
+
+  pointer-events: none;
+
+  transition:
+    transform 0.2s ease-out;
+}
+
+.hero__ghost-text {
+  position: absolute;
+
+  right: -4%;
+  top: 50%;
+
+  color: transparent;
+
+  font-size:
+    clamp(
+      7rem,
+      18vw,
+      19rem
+    );
+
+  font-weight: 900;
+
+  letter-spacing: -0.08em;
+
+  -webkit-text-stroke:
+    1px
+    rgba(255, 255, 255, 0.018);
+
+  white-space: nowrap;
+
+  user-select: none;
+  pointer-events: none;
+
+  transition:
+    transform 0.15s ease-out;
+}
+
+.hero__title {
+  position: relative;
+
+  max-width: 1050px;
+
+  color: #b91c1c;
+
+  font-size:
+    clamp(
+      4rem,
+      10vw,
+      8.8rem
+    );
+
+  font-weight: 900;
+
+  line-height: 0.78;
+
+  letter-spacing: -0.075em;
+
+  text-transform: uppercase;
+}
+
+.hero__vertical-line {
+  position: absolute;
+
+  top: 0;
+
+  width: 1px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+.hero__vertical-line--one {
+  left: 16%;
+}
+
+.hero__vertical-line--two {
+  right: 22%;
+}
+
+
+/* ============================= */
+/* Hero Buttons */
+/* ============================= */
+
+.hero-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  min-width: 180px;
+
+  padding: 14px 22px;
+
+  border: 1px solid;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hero-button:hover {
+  transform:
+    translateY(-2px);
+}
+
+.hero-button--primary {
+  border-color: #991b1b;
+
+  background: #991b1b;
+
+  color: #fff;
+}
+
+.hero-button--primary:hover {
+  background: transparent;
+
+  color: #ef4444;
+
+  box-shadow:
+    0 0 35px
+    rgba(185, 28, 28, 0.2);
+}
+
+.hero-button--secondary {
+  border-color:
+    rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(255, 255, 255, 0.015);
+
+  color: #71717a;
+}
+
+.hero-button--secondary:hover {
+  border-color:
+    rgba(255, 255, 255, 0.3);
+
+  color: #fff;
+}
+
+
+/* ============================= */
+/* Surveillance HUD */
+/* ============================= */
+
+.hud {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 180px;
+
+  color: #3f3f46;
+
+  font-size: 7px;
+
+  letter-spacing: 0.18em;
+
+  pointer-events: none;
+}
+
+.hud--left {
+  left: 30px;
+  bottom: 35px;
+}
+
+.hud--right {
+  right: 30px;
+  top: 130px;
+}
+
+.hud__line {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 6px 0;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.04);
+}
+
+.hud__value {
+  color: #71717a;
+}
+
+.hud__pulse {
+  margin-right: 5px;
+
+  color: #22c55e;
+
+  animation:
+    hud-pulse
+    1.5s
+    infinite;
+}
+
+.hud__coordinates {
+  margin-top: 12px;
+
+  color: #27272a;
+}
+
+@keyframes hud-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* ============================= */
+/* Surveillance Warning */
+/* ============================= */
+
+.hero__warning {
+  position: absolute;
+
+  right: 28px;
+  bottom: 30px;
+
+  z-index: 6;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #3f3f46;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.25em;
+}
+
+.hero__warning-dot {
+  color: #991b1b;
+
+  animation:
+    warning-pulse
+    1.2s
+    infinite;
+}
+
+@keyframes warning-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+}

@@ -1,0 +1,52 @@
+/* ============================= */
+/* Global */
+/* ============================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: #000;
+  color: #fff;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+a,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: #991b1b;
+  color: #fff;
+}

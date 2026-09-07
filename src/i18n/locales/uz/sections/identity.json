@@ -1,0 +1,49 @@
+{
+  "number": "05 / IDENTIFIKATSIYA",
+  "label": "MAXFIY SHAXS FAYLI",
+
+  "title": "IKKI",
+  "titleHighlight": "SHAXSIYAT.",
+
+  "description": "Bir tana ichida ikki xil ong. Biri tizimni ko‘radi. Ikkinchisi esa uni buzishga tayyor.",
+
+  "toggleLabel": "FAOL PROFIL",
+
+  "profiles": {
+    "elliot": {
+      "name": "ELLIOT ALDERSON",
+      "role": "CYBER SECURITY ENGINEER",
+      "status": "KUZATUV OSTIDA",
+      "threat": "YASHIRIN XAVF",
+      "network": "ALLSAFE / FSOCIETY",
+      "location": "NEW YORK",
+      "quote": "Dunyo haqida eng yomon narsa — hamma uxlayapti, lekin buni bilishmaydi.",
+      "description": "Ichki kurash bilan yashaydigan, jamiyatdan chetda qolgan, lekin tizimni ichidan ko‘ra oladigan hacker."
+    },
+    "mrrobot": {
+      "name": "MR. ROBOT",
+      "role": "REVOLUTIONARY MIND",
+      "status": "FAOL",
+      "threat": "YUQORI",
+      "network": "FSOCIETY",
+      "location": "UNKNOWN",
+      "quote": "Control is an illusion.",
+      "description": "Nazoratni rad etuvchi, tizimni qulatishga undovchi, Elliot ongining radikal tomoni."
+    }
+  },
+
+  "fields": {
+    "name": "SHAXS",
+    "role": "ROL",
+    "status": "HOLAT",
+    "threat": "XAVF DARAJASI",
+    "network": "TARMOQ",
+    "location": "JOYLASHUV"
+  },
+
+  "image": {
+    "camera": "CAM_04",
+    "signal": "SIGNAL 87%",
+    "blocked": "YUZNI ANIQLASH: BLOKLANGAN"
+  }
+}

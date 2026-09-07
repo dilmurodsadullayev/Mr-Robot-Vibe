@@ -1,122 +1,400 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
+const navItems = [
+  {
+    key: "home",
+    href: "#home",
+    fallback: "HOME",
+  },
+  {
+    key: "identity",
+    href: "#about",
+    fallback: "IDENTITY",
+  },
+  {
+    key: "characters",
+    href: "#characters",
+    fallback: "CHARACTERS",
+  },
+  {
+    key: "archive",
+    href: "#archive",
+    fallback: "ARCHIVE",
+  },
+  {
+    key: "terminal",
+    href: "#terminal",
+    fallback: "TERMINAL",
+  },
+];
+
 function Navbar() {
   const { t } = useTranslation("navbar");
 
-  return (
-    <header
-      className="
-        relative
-        z-50
-        border-b
-        border-white/10
-        bg-black/40
-        backdrop-blur-md
-      "
-    >
-      <div
-        className="
-          mx-auto
-          flex
-          max-w-7xl
-          items-center
-          justify-between
-          px-6
-          py-5
-          lg:px-8
-        "
-      >
-        <a
-          href="#"
-          className="
-            group
-            flex
-            items-center
-            gap-3
-          "
-        >
-          <span
-            className="
-              h-2
-              w-2
-              animate-pulse
-              rounded-full
-              bg-red-600
-              shadow-[0_0_12px_rgba(220,38,38,0.9)]
-            "
-          />
+  const [menuOpen, setMenuOpen] =
+    useState(false);
 
-          <span
-            className="
-              text-xs
-              font-black
-              tracking-[0.3em]
-              text-red-600
-              transition
-              group-hover:text-red-500
-            "
-          >
-            {t("brand")}
+  const [activeSection, setActiveSection] =
+    useState("home");
+
+  /*
+   * Close mobile menu with ESC.
+   */
+  useEffect(() => {
+    if (!menuOpen) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener(
+      "keydown",
+      handleKeyDown,
+    );
+
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown,
+      );
+    };
+  }, [menuOpen]);
+
+  /*
+   * Detect current visible section.
+   */
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => {
+        const id = item.href.replace(
+          "#",
+          "",
+        );
+
+        return document.getElementById(id);
+      })
+      .filter(Boolean);
+
+    if (sections.length === 0) {
+      return undefined;
+    }
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+          const visibleEntries =
+            entries.filter(
+              (entry) =>
+                entry.isIntersecting,
+            );
+
+          if (
+            visibleEntries.length === 0
+          ) {
+            return;
+          }
+
+          const mostVisible =
+            visibleEntries.reduce(
+              (current, entry) =>
+                entry.intersectionRatio >
+                current.intersectionRatio
+                  ? entry
+                  : current,
+            );
+
+          setActiveSection(
+            mostVisible.target.id,
+          );
+        },
+        {
+          rootMargin:
+            "-25% 0px -60% 0px",
+
+          threshold: [
+            0,
+            0.1,
+            0.25,
+            0.5,
+          ],
+        },
+      );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  const handleNavigation = (
+    event,
+    href,
+  ) => {
+    event.preventDefault();
+
+    const target =
+      document.querySelector(href);
+
+    if (!target) {
+      return;
+    }
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.replaceState(
+      null,
+      "",
+      href,
+    );
+
+    setActiveSection(
+      href.replace("#", ""),
+    );
+
+    setMenuOpen(false);
+  };
+
+  return (
+    <header className="navbar">
+      {/* top red line */}
+
+      <div className="navbar__signal-line" />
+
+      <div className="navbar__container">
+        {/* Brand */}
+
+        <a
+          href="#home"
+          className="navbar__brand"
+          onClick={(event) =>
+            handleNavigation(
+              event,
+              "#home",
+            )
+          }
+        >
+          <span className="navbar__brand-mark">
+            //
+          </span>
+
+          <span className="navbar__brand-text">
+            {t("brand", {
+              defaultValue:
+                "MR.ROBOT_VIBE",
+            })}
+          </span>
+
+          <span className="navbar__brand-status">
+            ●
           </span>
         </a>
 
+        {/* Desktop navigation */}
+
         <nav
-          className="
-            hidden
-            items-center
-            gap-8
-            lg:flex
-          "
+          className="navbar__desktop"
+          aria-label="Main navigation"
         >
-          <a
-            href="#home"
-            className="nav-link"
-          >
-            {t("home")}
-          </a>
+          {navItems.map((item) => {
+            const sectionId =
+              item.href.replace(
+                "#",
+                "",
+              );
 
-          <a
-            href="#about"
-            className="nav-link"
-          >
-            {t("about")}
-          </a>
+            const isActive =
+              activeSection ===
+              sectionId;
 
-          <a
-            href="#terminal"
-            className="nav-link"
-          >
-            {t("terminal")}
-          </a>
-
-          <a
-            href="#archive"
-            className="nav-link"
-          >
-            {t("archive")}
-          </a>
+            return (
+              <a
+                key={item.key}
+                href={item.href}
+                className={`
+                  nav-link
+                  ${
+                    isActive
+                      ? "nav-link--active"
+                      : ""
+                  }
+                `}
+                onClick={(event) =>
+                  handleNavigation(
+                    event,
+                    item.href,
+                  )
+                }
+              >
+                {t(
+                  `links.${item.key}`,
+                  {
+                    defaultValue:
+                      item.fallback,
+                  },
+                )}
+              </a>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-5">
-          <span
-            className="
-              hidden
-              text-[9px]
-              tracking-[0.2em]
-              text-zinc-600
-              md:block
-            "
-          >
-            <span className="mr-2 text-green-500">
+        {/* Right controls */}
+
+        <div className="navbar__actions">
+          <div className="navbar__system-status">
+            <span className="navbar__system-dot">
               ●
             </span>
 
-            {t("status")}
-          </span>
+            <span>
+              SYS_ONLINE
+            </span>
+          </div>
 
           <LanguageSwitcher />
+
+          {/* Mobile button */}
+
+          <button
+            type="button"
+            className={`
+              navbar__menu-button
+              ${
+                menuOpen
+                  ? "navbar__menu-button--open"
+                  : ""
+              }
+            `}
+            onClick={() =>
+              setMenuOpen(
+                (current) =>
+                  !current,
+              )
+            }
+            aria-label={
+              menuOpen
+                ? t("menu.close", {
+                    defaultValue:
+                      "Close menu",
+                  })
+                : t("menu.open", {
+                    defaultValue:
+                      "Open menu",
+                  })
+            }
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile navigation */}
+
+      <div
+        className={`
+          navbar-mobile
+          ${
+            menuOpen
+              ? "navbar-mobile--open"
+              : ""
+          }
+        `}
+      >
+        <div className="navbar-mobile__noise" />
+
+        <div className="navbar-mobile__header">
+          <span>
+            NAVIGATION_PROTOCOL
+          </span>
+
+          <span className="navbar-mobile__access">
+            ACCESS_GRANTED
+          </span>
+        </div>
+
+        <nav className="navbar-mobile__links">
+          {navItems.map(
+            (item, index) => {
+              const sectionId =
+                item.href.replace(
+                  "#",
+                  "",
+                );
+
+              const isActive =
+                activeSection ===
+                sectionId;
+
+              return (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  className={`
+                    navbar-mobile__link
+                    ${
+                      isActive
+                        ? "navbar-mobile__link--active"
+                        : ""
+                    }
+                  `}
+                  onClick={(event) =>
+                    handleNavigation(
+                      event,
+                      item.href,
+                    )
+                  }
+                >
+                  <span className="navbar-mobile__number">
+                    {String(
+                      index + 1,
+                    ).padStart(
+                      2,
+                      "0",
+                    )}
+                  </span>
+
+                  <span>
+                    {t(
+                      `links.${item.key}`,
+                      {
+                        defaultValue:
+                          item.fallback,
+                      },
+                    )}
+                  </span>
+
+                  <span className="navbar-mobile__arrow">
+                    →
+                  </span>
+                </a>
+              );
+            },
+          )}
+        </nav>
+
+        <div className="navbar-mobile__footer">
+          <span>
+            FSOCIETY // NAV
+          </span>
+
+          <span>
+            ENCRYPTED
+          </span>
         </div>
       </div>
     </header>

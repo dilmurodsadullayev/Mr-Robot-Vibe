@@ -16,6 +16,14 @@ function HeroSection() {
       });
   };
 
+  const scrollToIdentity = () => {
+    document
+      .getElementById("about")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  };
+
   return (
     <section
       id="home"
@@ -56,16 +64,17 @@ function HeroSection() {
         FSOCIETY
       </div>
 
-      {/* Vertical lines */}
+      {/* Decorative vertical lines */}
 
       <div className="hero__vertical-line hero__vertical-line--one" />
+
       <div className="hero__vertical-line hero__vertical-line--two" />
 
-      {/* System HUD */}
+      {/* Surveillance HUD */}
 
       <SystemHUD />
 
-      {/* Main hero content */}
+      {/* Main content */}
 
       <div
         className="
@@ -131,7 +140,7 @@ function HeroSection() {
             <span className="terminal-cursor" />
           </div>
 
-          {/* Eyebrow */}
+          {/* Small label */}
 
           <p
             className="
@@ -146,7 +155,7 @@ function HeroSection() {
             // {t("hero.eyebrow")}
           </p>
 
-          {/* Main title */}
+          {/* Title */}
 
           <h1 className="hero__title">
             <span
@@ -189,12 +198,14 @@ function HeroSection() {
               <br />
 
               <span className="text-zinc-300">
-                {t("hero.descriptionHighlight")}
+                {t(
+                  "hero.descriptionHighlight",
+                )}
               </span>
             </p>
           </div>
 
-          {/* Actions */}
+          {/* Buttons */}
 
           <div
             className="
@@ -220,13 +231,14 @@ function HeroSection() {
 
             <button
               type="button"
+              onClick={scrollToIdentity}
               className="hero-button hero-button--secondary"
             >
               {t("hero.whoAmI")}
             </button>
           </div>
 
-          {/* Bottom system line */}
+          {/* Bottom information */}
 
           <div
             className="
@@ -255,7 +267,7 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Surveillance warning */}
+      {/* Warning */}
 
       <div className="hero__warning">
         <span className="hero__warning-dot">

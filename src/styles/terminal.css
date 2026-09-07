@@ -1,0 +1,485 @@
+/* ============================= */
+/* Terminal Section */
+/* ============================= */
+
+.terminal-section {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  padding: 120px 24px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  background:
+    radial-gradient(
+      circle at 70% 50%,
+      rgba(127, 29, 29, 0.08),
+      transparent 35%
+    ),
+    #020202;
+}
+
+.terminal-section__glow {
+  position: absolute;
+
+  top: 50%;
+  right: 10%;
+
+  width: 500px;
+  height: 500px;
+
+  transform:
+    translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    rgba(153, 27, 27, 0.08);
+
+  filter: blur(150px);
+
+  pointer-events: none;
+}
+
+.terminal-section__grid {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.65fr)
+    minmax(0, 1.35fr);
+
+  align-items: center;
+
+  gap: 80px;
+
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+}
+
+.terminal-section__content {
+  max-width: 420px;
+}
+
+.terminal-section__label {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 24px;
+
+  color: #991b1b;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.35em;
+}
+
+.terminal-section__label-line {
+  width: 35px;
+  height: 1px;
+
+  background: #991b1b;
+}
+
+.terminal-section__title {
+  color: #e4e4e7;
+
+  font-size:
+    clamp(
+      2.8rem,
+      5vw,
+      5rem
+    );
+
+  font-weight: 900;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+
+  text-transform: uppercase;
+}
+
+.terminal-section__description {
+  max-width: 380px;
+
+  margin-top: 25px;
+
+  color: #52525b;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.terminal-section__hint {
+  margin-top: 30px;
+
+  color: #7f1d1d;
+
+  font-size: 9px;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* ============================= */
+/* Terminal Window */
+/* ============================= */
+
+.terminal-window {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 520px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  background:
+    rgba(3, 3, 3, 0.94);
+
+  box-shadow:
+    0 30px 100px
+    rgba(0, 0, 0, 0.6),
+
+    0 0 80px
+    rgba(127, 29, 29, 0.06);
+
+  backdrop-filter: blur(15px);
+}
+
+.terminal-window::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.015),
+      transparent
+    );
+
+  opacity: 0.5;
+}
+
+
+/* Header */
+
+.terminal-window__header {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items: center;
+
+  height: 48px;
+
+  padding: 0 16px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  background:
+    rgba(255, 255, 255, 0.015);
+}
+
+.terminal-window__controls {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.terminal-control {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #27272a;
+}
+
+.terminal-control--red {
+  background: #991b1b;
+
+  box-shadow:
+    0 0 8px
+    rgba(220, 38, 38, 0.45);
+}
+
+.terminal-window__title {
+  color: #52525b;
+
+  font-size: 8px;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+.terminal-window__status {
+  justify-self: end;
+
+  color: #3f3f46;
+
+  font-size: 7px;
+
+  letter-spacing: 0.18em;
+}
+
+.terminal-window__status-dot {
+  margin-right: 7px;
+
+  color: #22c55e;
+
+  animation:
+    terminal-status-pulse
+    1.5s
+    infinite;
+}
+
+@keyframes terminal-status-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* Body */
+
+.terminal-window__body {
+  position: relative;
+
+  height: 420px;
+
+  overflow-y: auto;
+
+  padding: 28px;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    #3f3f46
+    transparent;
+}
+
+.terminal-window__body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.terminal-window__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-window__body::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+}
+
+
+/* Lines */
+
+.terminal-line {
+  min-height: 21px;
+
+  color: #71717a;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+
+  white-space: pre-wrap;
+
+  word-break: break-word;
+}
+
+.terminal-line--command {
+  margin-top: 9px;
+
+  color: #d4d4d8;
+}
+
+.terminal-line--system {
+  color: #991b1b;
+}
+
+.terminal-line--success {
+  color: #a1a1aa;
+}
+
+.terminal-line--error {
+  color: #dc2626;
+}
+
+.terminal-line__prompt {
+  margin-right: 2px;
+
+  color: #b91c1c;
+}
+
+.terminal-line__separator {
+  color: #52525b;
+}
+
+.terminal-line__path {
+  margin-right: 9px;
+
+  color: #71717a;
+}
+
+.terminal-line__text {
+  white-space: pre-wrap;
+}
+
+
+/* Input */
+
+.terminal-input {
+  display: flex;
+  align-items: center;
+
+  min-height: 28px;
+
+  margin-top: 8px;
+
+  color: #a1a1aa;
+
+  font-size: 11px;
+}
+
+.terminal-input__user {
+  color: #b91c1c;
+}
+
+.terminal-input__host {
+  color: #71717a;
+}
+
+.terminal-input__separator {
+  color: #52525b;
+}
+
+.terminal-input__path {
+  margin-right: 8px;
+
+  color: #71717a;
+}
+
+.terminal-input__field {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 0;
+
+  border: 0;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #e4e4e7;
+
+  caret-color: #dc2626;
+
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.terminal-input__field::placeholder {
+  color: #27272a;
+}
+
+.terminal-input__cursor {
+  width: 6px;
+  height: 15px;
+
+  margin-left: 3px;
+
+  background: #991b1b;
+
+  animation:
+    terminal-blink
+    0.8s
+    infinite;
+}
+
+
+/* Footer */
+
+.terminal-window__footer {
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+
+  min-height: 48px;
+
+  padding: 0 18px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  color: #27272a;
+
+  font-size: 7px;
+
+  letter-spacing: 0.15em;
+}
+
+.terminal-window__execute {
+  margin-left: auto;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #7f1d1d;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.terminal-window__execute:hover {
+  color: #ef4444;
+
+  text-shadow:
+    0 0 12px
+    rgba(239, 68, 68, 0.4);
+}

@@ -1,0 +1,93 @@
+{
+  "number": "07 / PERSONNEL",
+  "label": "SUBJECTS UNDER SURVEILLANCE",
+
+  "title": "KNOWN",
+  "titleHighlight": "SUBJECTS.",
+
+  "description": "Individuals connected to the system, their activities, affiliations and surveillance records.",
+
+  "fields": {
+    "role": "ROLE",
+    "affiliation": "AFFILIATION",
+    "status": "STATUS",
+    "profile": "PROFILE"
+  },
+
+  "actions": {
+    "open": "OPEN FILE",
+    "close": "CLOSE"
+  },
+
+  "modal": {
+    "subject": "SUBJECT FILE",
+    "classification": "CLASSIFIED INFORMATION",
+    "warning": "UNAUTHORIZED ACCESS IS BEING MONITORED"
+  },
+
+  "characters": {
+    "elliot": {
+      "role": "CYBERSECURITY ENGINEER / HACKER",
+      "affiliation": "ALLSAFE / FSOCIETY",
+      "status": "UNDER SURVEILLANCE",
+      "profile": "INTROVERTED / HIGH TECHNICAL ABILITY",
+      "description": "A cybersecurity engineer who secretly operates as a hacker. He has an exceptional ability to analyze systems, people and their vulnerabilities."
+    },
+
+    "mrrobot": {
+      "role": "REVOLUTIONARY FIGURE",
+      "affiliation": "FSOCIETY",
+      "status": "ACTIVE",
+      "profile": "RADICAL / UNPREDICTABLE",
+      "description": "A figure representing the most aggressive and revolutionary side of the fsociety movement."
+    },
+
+    "darlene": {
+      "role": "HACKER",
+      "affiliation": "FSOCIETY",
+      "status": "ACTIVE",
+      "profile": "SKILLED / DETERMINED",
+      "description": "One of the primary technical members of fsociety, heavily involved in infiltration and operational planning."
+    },
+
+    "angela": {
+      "role": "CORPORATE EMPLOYEE",
+      "affiliation": "ALLSAFE / E CORP",
+      "status": "MONITORED",
+      "profile": "AMBITIOUS / COMPLEX",
+      "description": "Elliot's childhood friend whose involvement with Allsafe and later E Corp becomes increasingly important."
+    },
+
+    "tyrell": {
+      "role": "TECHNOLOGY EXECUTIVE",
+      "affiliation": "E CORP",
+      "status": "HIGH PRIORITY",
+      "profile": "AMBITIOUS / VOLATILE",
+      "description": "A senior technology executive at E Corp whose intense pursuit of power, status and control makes him a major figure."
+    },
+
+    "price": {
+      "role": "CHIEF EXECUTIVE OFFICER",
+      "affiliation": "E CORP",
+      "status": "PROTECTED",
+      "profile": "STRATEGIC / POWERFUL",
+      "description": "The head of E Corp and a major player in corporate politics, economic power and global influence."
+    },
+
+    "whiterose": {
+      "role": "LEADER",
+      "affiliation": "DARK ARMY",
+      "status": "TOP SECRET",
+      "profile": "STRATEGIC / DANGEROUS",
+      "description": "The mysterious and powerful leader of the Dark Army, associated with long-term plans and covert operations."
+    },
+
+    "dom": {
+      "role": "FBI SPECIAL AGENT",
+      "affiliation": "FBI",
+      "status": "ACTIVE",
+      "profile": "ANALYTICAL / DETERMINED",
+      "description": "An FBI agent investigating activities connected to fsociety and the Dark Army."
+    }
+  }
+}

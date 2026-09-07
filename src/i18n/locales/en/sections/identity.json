@@ -1,0 +1,49 @@
+{
+  "number": "05 / IDENTITY",
+  "label": "CLASSIFIED SUBJECT FILE",
+
+  "title": "DUAL",
+  "titleHighlight": "IDENTITY.",
+
+  "description": "Two minds inside one fractured reality. One sees the system. The other wants to destroy it.",
+
+  "toggleLabel": "ACTIVE PROFILE",
+
+  "profiles": {
+    "elliot": {
+      "name": "ELLIOT ALDERSON",
+      "role": "CYBER SECURITY ENGINEER",
+      "status": "UNDER SURVEILLANCE",
+      "threat": "HIDDEN RISK",
+      "network": "ALLSAFE / FSOCIETY",
+      "location": "NEW YORK",
+      "quote": "The worst thing about the world is that everyone sleeps, and they don’t even know it.",
+      "description": "A withdrawn hacker living with internal conflict, able to see the system from the inside."
+    },
+    "mrrobot": {
+      "name": "MR. ROBOT",
+      "role": "REVOLUTIONARY MIND",
+      "status": "ACTIVE",
+      "threat": "HIGH",
+      "network": "FSOCIETY",
+      "location": "UNKNOWN",
+      "quote": "Control is an illusion.",
+      "description": "A rebellious force rejecting control and pushing Elliot toward revolution."
+    }
+  },
+
+  "fields": {
+    "name": "IDENTITY",
+    "role": "ROLE",
+    "status": "STATUS",
+    "threat": "THREAT LEVEL",
+    "network": "NETWORK",
+    "location": "LOCATION"
+  },
+
+  "image": {
+    "camera": "CAM_04",
+    "signal": "SIGNAL 87%",
+    "blocked": "FACIAL RECOGNITION: BLOCKED"
+  }
+}

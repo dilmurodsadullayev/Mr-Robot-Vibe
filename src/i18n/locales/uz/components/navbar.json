@@ -1,8 +1,16 @@
 {
-  "brand": "FSOCIETY",
-  "home": "Bosh sahifa",
-  "about": "Haqida",
-  "terminal": "Terminal",
-  "archive": "Arxiv",
-  "status": "TIZIM ONLAYN"
+  "brand": "MR.ROBOT_VIBE",
+
+  "links": {
+    "home": "BOSH SAHIFA",
+    "identity": "SHAXSIYAT",
+    "characters": "QAHRAMONLAR",
+    "archive": "ARXIV",
+    "terminal": "TERMINAL"
+  },
+
+  "menu": {
+    "open": "Menyuni ochish",
+    "close": "Menyuni yopish"
+  }
 }

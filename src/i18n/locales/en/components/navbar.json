@@ -1,8 +1,16 @@
 {
-  "brand": "FSOCIETY",
-  "home": "Home",
-  "about": "About",
-  "terminal": "Terminal",
-  "archive": "Archive",
-  "status": "SYSTEM ONLINE"
+  "brand": "MR.ROBOT_VIBE",
+
+  "links": {
+    "home": "HOME",
+    "identity": "IDENTITY",
+    "characters": "CHARACTERS",
+    "archive": "ARCHIVE",
+    "terminal": "TERMINAL"
+  },
+
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu"
+  }
 }

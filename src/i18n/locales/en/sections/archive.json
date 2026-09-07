@@ -1,0 +1,67 @@
+{
+  "number": "06 / ARCHIVE",
+  "label": "CLASSIFIED EVIDENCE DATABASE",
+
+  "title": "CLASSIFIED",
+  "titleHighlight": "EVIDENCE.",
+
+  "description": "Fragmented records, surveillance imagery and recovered files extracted from the system. Some information remains encrypted.",
+
+  "open": "OPEN FILE",
+
+  "status": {
+    "label": "STATUS",
+    "decrypted": "DECRYPTED",
+    "encrypted": "ENCRYPTED",
+    "classified": "CLASSIFIED",
+    "corrupted": "CORRUPTED"
+  },
+
+  "source": {
+    "label": "SOURCE",
+    "unknown": "UNKNOWN",
+    "fsociety": "FSOCIETY NETWORK",
+    "surveillance": "SURVEILLANCE SYSTEM"
+  },
+
+  "modal": {
+    "close": "CLOSE",
+    "date": "DATE",
+    "signal": "SIGNAL",
+    "file": "EVIDENCE FILE",
+    "classification": "CLASSIFIED INFORMATION",
+    "warning": "UNAUTHORIZED ACCESS IS LOGGED"
+  },
+
+  "files": {
+    "file01": {
+      "title": "UNKNOWN SUBJECT",
+      "description": "Recovered footage captured by a surveillance camera."
+    },
+
+    "file02": {
+      "title": "HIDDEN NETWORK",
+      "description": "Network activity recorded through an unidentified server."
+    },
+
+    "file03": {
+      "title": "IDENTITY REDACTED",
+      "description": "Facial recognition systems failed to identify the subject."
+    },
+
+    "file04": {
+      "title": "SURVEILLANCE RECORD",
+      "description": "Frame recovered from an encrypted surveillance system."
+    },
+
+    "file05": {
+      "title": "CORRUPTED FILE",
+      "description": "Most of the recovered data appears permanently damaged."
+    },
+
+    "file06": {
+      "title": "FSOCIETY SIGNAL",
+      "description": "A classified transmission received from an anonymous source."
+    }
+  }
+}

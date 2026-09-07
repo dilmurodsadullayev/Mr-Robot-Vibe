@@ -1,0 +1,131 @@
+/* ============================= */
+/* Intro Loader */
+/* ============================= */
+
+.intro-loader {
+  position: fixed;
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(127, 29, 29, 0.12),
+      transparent 45%
+    ),
+    #000;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.intro-loader--closing {
+  opacity: 0;
+
+  transform: scale(1.025);
+
+  filter: blur(8px);
+
+  pointer-events: none;
+}
+
+.intro-loader__content {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(90%, 540px);
+}
+
+.intro-loader__brand {
+  margin-bottom: 50px;
+
+  color: #991b1b;
+
+  font-size:
+    clamp(
+      2rem,
+      8vw,
+      4rem
+    );
+
+  font-weight: 900;
+
+  letter-spacing: -0.06em;
+
+  text-align: center;
+
+  text-shadow:
+    0 0 30px
+    rgba(220, 38, 38, 0.2);
+}
+
+.intro-loader__terminal {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 25px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+}
+
+.intro-loader__status {
+  min-height: 20px;
+
+  margin-bottom: 14px;
+
+  color: #71717a;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.3em;
+}
+
+.intro-loader__progress {
+  position: relative;
+
+  height: 2px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.intro-loader__progress-bar {
+  height: 100%;
+
+  background: #b91c1c;
+
+  box-shadow:
+    0 0 15px
+    rgba(220, 38, 38, 0.8);
+
+  transition:
+    width 0.08s linear;
+}
+
+.intro-loader__meta {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 12px;
+
+  color: #3f3f46;
+
+  font-size: 8px;
+
+  letter-spacing: 0.2em;
+}

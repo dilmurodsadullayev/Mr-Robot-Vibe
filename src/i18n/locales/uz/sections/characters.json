@@ -1,0 +1,93 @@
+{
+  "number": "07 / SHAXSLAR",
+  "label": "KUZATUV OSTIDAGI SHAXSLAR",
+
+  "title": "ASOSIY",
+  "titleHighlight": "SHAXSLAR.",
+
+  "description": "Tizim bilan bog‘liq shaxslar, ularning faoliyati, aloqalari va kuzatuv ma’lumotlari.",
+
+  "fields": {
+    "role": "LAVOZIM",
+    "affiliation": "ALOQA",
+    "status": "HOLAT",
+    "profile": "PROFIL"
+  },
+
+  "actions": {
+    "open": "FAYLNI OCHISH",
+    "close": "YOPISH"
+  },
+
+  "modal": {
+    "subject": "SUBYEKT FAYLI",
+    "classification": "MAXFIY MA'LUMOT",
+    "warning": "RUXSATSIZ KIRISH KUZATILMOQDA"
+  },
+
+  "characters": {
+    "elliot": {
+      "role": "KIBERXAVFSIZLIK MUHANDISI / HACKER",
+      "affiliation": "ALLSAFE / FSOCIETY",
+      "status": "KUZATUV OSTIDA",
+      "profile": "INTROVERT / YUQORI TEXNIK QOBILIYAT",
+      "description": "Kiberxavfsizlik sohasida ishlaydigan va yashirin ravishda hackerlik qiladigan mutaxassis. Tizimlarni, insonlarni va ularning zaif tomonlarini chuqur tahlil qiladi."
+    },
+
+    "mrrobot": {
+      "role": "INQILOBIY FIGURA",
+      "affiliation": "FSOCIETY",
+      "status": "FAOL",
+      "profile": "RADIKAL / OLDINDAN AYTA BO'LMAYDI",
+      "description": "Fsociety harakatining eng agressiv va inqilobiy qarashlarini ifodalovchi figura."
+    },
+
+    "darlene": {
+      "role": "HACKER",
+      "affiliation": "FSOCIETY",
+      "status": "FAOL",
+      "profile": "TAJRIBALI / QAT'IYATLI",
+      "description": "Fsociety faoliyatining asosiy texnik ishtirokchilaridan biri. Murakkab tizimlarga kirish va operatsiyalarni amalga oshirishda katta rol o‘ynaydi."
+    },
+
+    "angela": {
+      "role": "KORPORATIV XODIM",
+      "affiliation": "ALLSAFE / E CORP",
+      "status": "KUZATILMOQDA",
+      "profile": "AMBITSIOZ / MURAKKAB",
+      "description": "Elliotning bolalikdagi yaqin do‘sti. Allsafe va keyinchalik E Corp bilan bog‘liq faoliyati voqealarning muhim qismiga aylanadi."
+    },
+
+    "tyrell": {
+      "role": "TEXNOLOGIYA RAHBARI",
+      "affiliation": "E CORP",
+      "status": "YUQORI USTUVORLIK",
+      "profile": "AMBITSIOZ / XAVFLI",
+      "description": "E Corp'dagi yuqori martabali texnologiya rahbari. Kuch, mavqe va nazoratga bo‘lgan kuchli intilishi uni muhim figuraga aylantiradi."
+    },
+
+    "price": {
+      "role": "BOSH IJROCHI DIREKTOR",
+      "affiliation": "E CORP",
+      "status": "HIMOYALANGAN",
+      "profile": "STRATEG / KUCHLI",
+      "description": "E Corp rahbari. Korporativ siyosat, iqtisodiy kuch va global ta’sir markazida turadi."
+    },
+
+    "whiterose": {
+      "role": "RAHBAR",
+      "affiliation": "DARK ARMY",
+      "status": "O'TA MAXFIY",
+      "profile": "STRATEGIK / XAVFLI",
+      "description": "Dark Army tashkilotining sirli va kuchli rahbari. Uzoq muddatli strategiyalar va yashirin operatsiyalar bilan bog‘liq."
+    },
+
+    "dom": {
+      "role": "FBI MAXSUS AGENTI",
+      "affiliation": "FBI",
+      "status": "FAOL",
+      "profile": "ANALITIK / QAT'IYATLI",
+      "description": "Fsociety va Dark Army bilan bog‘liq ishlarni tergov qiluvchi FBI agenti."
+    }
+  }
+}
