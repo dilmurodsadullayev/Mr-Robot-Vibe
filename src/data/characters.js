@@ -2,7 +2,7 @@ const characters = [
   {
     id: "SUBJECT_001",
     slug: "elliot",
-    image: "/images/characters/elliot-alderson.jpg",
+    image: "/images/characters/elliot-alderson.jpeg",
     name: "ELLIOT ALDERSON",
     file: "FS-01-EA",
     roleKey: "characters.elliot.role",
@@ -15,7 +15,7 @@ const characters = [
   {
     id: "SUBJECT_002",
     slug: "mrrobot",
-    image: "/images/characters/mr-robot.jpg",
+    image: "/images/characters/mr-robot.jpeg",
     name: "MR. ROBOT",
     file: "FS-02-MR",
     roleKey: "characters.mrrobot.role",
@@ -28,7 +28,7 @@ const characters = [
   {
     id: "SUBJECT_003",
     slug: "darlene",
-    image: "/images/characters/darlene-alderson.jpg",
+    image: "/images/characters/darlene-alderson.jpeg",
     name: "DARLENE ALDERSON",
     file: "FS-03-DA",
     roleKey: "characters.darlene.role",
@@ -41,7 +41,7 @@ const characters = [
   {
     id: "SUBJECT_004",
     slug: "angela",
-    image: "/images/characters/angela-moss.jpg",
+    image: "/images/characters/angela-moss.png",
     name: "ANGELA MOSS",
     file: "EC-04-AM",
     roleKey: "characters.angela.role",
@@ -54,7 +54,7 @@ const characters = [
   {
     id: "SUBJECT_005",
     slug: "tyrell",
-    image: "/images/characters/tyrell-wellick.jpg",
+    image: "/images/characters/tyrell-wellick.png",
     name: "TYRELL WELLICK",
     file: "EC-05-TW",
     roleKey: "characters.tyrell.role",
@@ -67,7 +67,7 @@ const characters = [
   {
     id: "SUBJECT_006",
     slug: "price",
-    image: "/images/characters/phillip-price.jpg",
+    image: "/images/characters/phillip-price.jpeg",
     name: "PHILLIP PRICE",
     file: "EC-06-PP",
     roleKey: "characters.price.role",
@@ -80,7 +80,7 @@ const characters = [
   {
     id: "SUBJECT_007",
     slug: "whiterose",
-    image: "/images/characters/whiterose.jpg",
+    image: "/images/characters/whiterose.jpeg",
     name: "WHITEROSE",
     file: "DA-07-WR",
     roleKey: "characters.whiterose.role",
@@ -93,7 +93,7 @@ const characters = [
   {
     id: "SUBJECT_008",
     slug: "dom",
-    image: "/images/characters/dominique-dipierro.jpg",
+    image: "/images/characters/dominique-dipierro.jpeg",
     name: "DOMINIQUE DIPIERRO",
     file: "FBI-08-DD",
     roleKey: "characters.dom.role",
