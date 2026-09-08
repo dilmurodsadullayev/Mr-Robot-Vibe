@@ -1,7 +1,7 @@
 import HeroSection from "../../sections/Hero/HeroSection";
 import IdentitySection from "../../sections/Identity/IdentitySection";
 import CharactersSection from "../../sections/Characters/CharactersSection";
-import ArchiveSection from "../../sections/Archive/ArchiveSection";
+import SeriesStatsSection from "../../sections/SeriesStats/SeriesStatsSection";
 import TerminalSection from "../../sections/Terminal/TerminalSection";
 
 function HomePage() {
@@ -13,7 +13,7 @@ function HomePage() {
 
       <CharactersSection />
 
-      <ArchiveSection />
+      <SeriesStatsSection />
 
       <TerminalSection />
     </>

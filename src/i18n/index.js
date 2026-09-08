@@ -18,8 +18,8 @@ import uzGlobalLoader from "./locales/uz/components/globalLoader.json";
 import uzHome from "./locales/uz/pages/home.json";
 
 import uzIdentity from "./locales/uz/sections/identity.json";
-import uzArchive from "./locales/uz/sections/archive.json";
 import uzCharacters from "./locales/uz/sections/characters.json";
+import uzSeriesStats from "./locales/uz/sections/seriesStats.json";
 
 /* ============================= */
 /* English */
@@ -38,8 +38,8 @@ import enGlobalLoader from "./locales/en/components/globalLoader.json";
 import enHome from "./locales/en/pages/home.json";
 
 import enIdentity from "./locales/en/sections/identity.json";
-import enArchive from "./locales/en/sections/archive.json";
 import enCharacters from "./locales/en/sections/characters.json";
+import enSeriesStats from "./locales/en/sections/seriesStats.json";
 
 /* ============================= */
 /* Language Storage */
@@ -73,8 +73,8 @@ const resources = {
     home: uzHome,
 
     identity: uzIdentity,
-    archive: uzArchive,
     characters: uzCharacters,
+    seriesStats: uzSeriesStats,
   },
 
   en: {
@@ -92,8 +92,8 @@ const resources = {
     home: enHome,
 
     identity: enIdentity,
-    archive: enArchive,
     characters: enCharacters,
+    seriesStats: enSeriesStats,
   },
 };
 

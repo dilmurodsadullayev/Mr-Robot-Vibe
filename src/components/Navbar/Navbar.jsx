@@ -20,9 +20,9 @@ const navItems = [
     fallback: "CHARACTERS",
   },
   {
-    key: "archive",
-    href: "#archive",
-    fallback: "ARCHIVE",
+    key: "ratings",
+    href: "#ratings",
+    fallback: "RATINGS",
   },
   {
     key: "terminal",
@@ -40,9 +40,10 @@ function Navbar() {
   const [activeSection, setActiveSection] =
     useState("home");
 
-  /*
-   * Close mobile menu with ESC.
-   */
+  /* ============================= */
+  /* Close mobile menu with ESC */
+  /* ============================= */
+
   useEffect(() => {
     if (!menuOpen) {
       return undefined;
@@ -67,18 +68,22 @@ function Navbar() {
     };
   }, [menuOpen]);
 
-  /*
-   * Detect current visible section.
-   */
+  /* ============================= */
+  /* Detect active section */
+  /* ============================= */
+
   useEffect(() => {
     const sections = navItems
       .map((item) => {
-        const id = item.href.replace(
-          "#",
-          "",
-        );
+        const id =
+          item.href.replace(
+            "#",
+            "",
+          );
 
-        return document.getElementById(id);
+        return document.getElementById(
+          id,
+        );
       })
       .filter(Boolean);
 
@@ -136,6 +141,10 @@ function Navbar() {
     };
   }, []);
 
+  /* ============================= */
+  /* Navigation */
+  /* ============================= */
+
   const handleNavigation = (
     event,
     href,
@@ -169,12 +178,20 @@ function Navbar() {
 
   return (
     <header className="navbar">
-      {/* top red line */}
+      {/* ============================= */}
+      {/* Animated red signal line */}
+      {/* ============================= */}
 
       <div className="navbar__signal-line" />
 
+      {/* ============================= */}
+      {/* Navbar main container */}
+      {/* ============================= */}
+
       <div className="navbar__container">
+        {/* ============================= */}
         {/* Brand */}
+        {/* ============================= */}
 
         <a
           href="#home"
@@ -202,7 +219,9 @@ function Navbar() {
           </span>
         </a>
 
-        {/* Desktop navigation */}
+        {/* ============================= */}
+        {/* Desktop Navigation */}
+        {/* ============================= */}
 
         <nav
           className="navbar__desktop"
@@ -250,9 +269,13 @@ function Navbar() {
           })}
         </nav>
 
+        {/* ============================= */}
         {/* Right controls */}
+        {/* ============================= */}
 
         <div className="navbar__actions">
+          {/* system status */}
+
           <div className="navbar__system-status">
             <span className="navbar__system-dot">
               ●
@@ -263,9 +286,13 @@ function Navbar() {
             </span>
           </div>
 
+          {/* language */}
+
           <LanguageSwitcher />
 
-          {/* Mobile button */}
+          {/* ============================= */}
+          {/* Mobile menu button */}
+          {/* ============================= */}
 
           <button
             type="button"
@@ -303,7 +330,9 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile navigation */}
+      {/* ============================= */}
+      {/* Mobile Navigation */}
+      {/* ============================= */}
 
       <div
         className={`
@@ -315,7 +344,11 @@ function Navbar() {
           }
         `}
       >
+        {/* noise */}
+
         <div className="navbar-mobile__noise" />
+
+        {/* header */}
 
         <div className="navbar-mobile__header">
           <span>
@@ -326,6 +359,8 @@ function Navbar() {
             ACCESS_GRANTED
           </span>
         </div>
+
+        {/* links */}
 
         <nav className="navbar-mobile__links">
           {navItems.map(
@@ -386,6 +421,8 @@ function Navbar() {
             },
           )}
         </nav>
+
+        {/* footer */}
 
         <div className="navbar-mobile__footer">
           <span>

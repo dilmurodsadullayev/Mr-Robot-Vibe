@@ -1,0 +1,95 @@
+{
+  "number": "08 / SERIAL BAZASI",
+  "publicIndex": "OCHIQ_INDEKS",
+
+  "type": "TV SERIAL",
+  "years": "2015–2019",
+
+  "title": "MR.",
+  "titleHighlight": "ROBOT",
+
+  "description": "Mr. Robot serialining sezonlari, epizodlari va tomoshabinlar tomonidan berilgan reytinglari.",
+
+  "status": {
+    "label": "SERIAL HOLATI",
+    "completed": "YAKUNLANGAN"
+  },
+
+  "ratings": {
+    "imdb": {
+      "source": "IMDb",
+      "label": "FOYDALANUVCHI BAHOSI"
+    },
+
+    "rottenTomatoes": {
+      "source": "RT",
+      "label": "TOMATOMETER"
+    },
+
+    "audience": {
+      "source": "TOMOSHABINLAR",
+      "label": "TOMOSHABIN BAHOSI"
+    },
+
+    "metacritic": {
+      "source": "META",
+      "label": "METASCORE"
+    },
+
+    "metaUsers": {
+      "source": "FOYDALANUVCHILAR",
+      "label": "FOYDALANUVCHI BAHOSI"
+    }
+  },
+
+  "seriesInfo": {
+    "title": "SERIAL HAQIDA",
+
+    "seasons": "SEZONLAR",
+    "episodes": "EPIZODLAR",
+    "years": "YILLAR",
+    "ninePlusEpisodes": "9.0+ EPIZODLAR"
+  },
+
+  "seasonRatings": {
+    "title": "SEZON REYTINGLARI",
+    "subtitle": "IMDb epizodlarining o'rtacha bahosi",
+    "count": "{{count}} SEZON"
+  },
+
+  "community": {
+    "title": "HAMJAMIYAT SIGNALI",
+    "name": "r/MrRobotVibe",
+
+    "post1": {
+      "title": "Eng yuqori reytingli signal aniqlandi.",
+      "description": "{{season}}E{{episode}} epizodi {{score}}/10 bahoga erishdi — bazadagi eng yuqori natija."
+    },
+
+    "post2": {
+      "title": "{{season}} o'rtacha reyting bo'yicha eng kuchli sezon.",
+      "description": "{{episodes}} ta epizod tahlil qilindi. O'rtacha signal kuchi: {{average}}/10."
+    },
+
+    "post3": {
+      "title": "{{count}} ta epizod 9.0 chegarasidan o'tdi.",
+      "description": "Serial davomida juda ko'p yuqori baholangan epizodlar aniqlandi."
+    },
+
+    "systemAnalysis": "TIZIM TAHLILI",
+    "share": "ULASHISH",
+    "save": "SAQLASH"
+  },
+
+  "episodeBrowser": {
+    "label": "EPIZOD BRAUZERI",
+    "title": "BARCHA REYTINGLAR",
+    "episodes": "{{count}} EPIZOD",
+    "average": "O'RT"
+  },
+
+  "footer": {
+    "database": "MA'LUMOT // SERIAL REYTINGLARI",
+    "source": "Reytinglar vaqt o'tishi bilan o'zgarishi mumkin."
+  }
+}
