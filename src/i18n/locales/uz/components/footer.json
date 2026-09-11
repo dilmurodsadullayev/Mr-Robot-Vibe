@@ -1,6 +1,16 @@
 {
-  "project": "MR_ROBOT_VIBE",
+  "description": "Mr. Robot atmosferasidan ilhomlangan interaktiv va norasmiy fan loyiha.",
   "status": "TIZIM FAOL",
-  "access": "ANONIM KIRISH",
-  "copyright": "Muxlislar tomonidan yaratilgan norasmiy loyiha."
+  "connection": "ANONIM KIRISH",
+  "fanProject": "Muxlislar tomonidan yaratilgan norasmiy loyiha.",
+
+  "creator": {
+    "label": "YARATUVCHI",
+    "role": "WEB DEVELOPER",
+    "text": "Dizayn, frontend arxitektura va interaktiv tajriba."
+  },
+
+  "technology": {
+    "label": "TEXNOLOGIYALAR"
+  }
 }

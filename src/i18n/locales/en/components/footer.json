@@ -1,6 +1,16 @@
 {
-  "project": "MR_ROBOT_VIBE",
-  "status": "SYSTEM ACTIVE",
-  "access": "ANONYMOUS ACCESS",
-  "copyright": "Unofficial fan-made project."
+  "description": "An unofficial interactive fan project inspired by the atmosphere of Mr. Robot.",
+  "status": "SYSTEM ONLINE",
+  "connection": "ANONYMOUS ACCESS",
+  "fanProject": "An unofficial fan-made project.",
+
+  "creator": {
+    "label": "CREATED BY",
+    "role": "WEB DEVELOPER",
+    "text": "Design, frontend architecture and interactive experience."
+  },
+
+  "technology": {
+    "label": "TECHNOLOGIES"
+  }
 }
