@@ -1,0 +1,181 @@
+/* ========================================================= */
+/* MR.ROBOT VIBE */
+/* PERFORMANCE OPTIMIZATIONS */
+/* ========================================================= */
+
+
+/* ========================================================= */
+/* CONTENT VISIBILITY */
+/* ========================================================= */
+
+/*
+ * Viewportdan uzoq sectionlarni browser
+ * vaqtincha to'liq paint qilmaydi.
+ *
+ * Uzun landing page uchun juda foydali.
+ */
+
+#about,
+#characters,
+#ratings,
+#terminal {
+  content-visibility: auto;
+
+  contain-intrinsic-size:
+    auto 900px;
+}
+
+
+/* ========================================================= */
+/* IMAGE RENDERING */
+/* ========================================================= */
+
+img {
+  max-width: 100%;
+}
+
+.character-card__image {
+  backface-visibility:
+    hidden;
+
+  transform:
+    translateZ(0);
+}
+
+
+/* ========================================================= */
+/* GPU LAYERS */
+/* Faqat animatsiya qilinadigan elementlarga */
+/* ========================================================= */
+
+.glitch,
+.secret-signal__beacon,
+.secret-signal__radar-line,
+.scroll-progress__scanner,
+.identity-portrait__scan,
+.character-card__scan {
+  backface-visibility:
+    hidden;
+}
+
+
+/* ========================================================= */
+/* AVOID EXPENSIVE PAINT OUTSIDE VIEW */
+/* ========================================================= */
+
+.characters-section,
+.series-stats-section,
+.terminal-section,
+.identity-section {
+  contain:
+    layout
+    paint;
+}
+
+
+/* ========================================================= */
+/* MOBILE PERFORMANCE */
+/* ========================================================= */
+
+@media (max-width: 760px) {
+  /*
+   * Telefonlarda blur juda qimmat.
+   */
+
+  .characters-section__glow,
+  .identity-section__glow,
+  .series-stats__glow,
+  .hero__glow,
+  .secret-access__glow {
+    filter:
+      blur(80px) !important;
+  }
+
+  /*
+   * Juda mayda noise layerlarning
+   * opacity qiymatini kamaytiramiz.
+   */
+
+  .noise,
+  .character-card__noise,
+  .secret-access__noise,
+  .secret-signal__panel-noise {
+    opacity:
+      0.025 !important;
+  }
+
+  /*
+   * Mobileda hover transform foydasiz.
+   */
+
+  .character-card:hover
+  .character-card__image {
+    transform:
+      none;
+  }
+}
+
+
+/* ========================================================= */
+/* LOW POWER / REDUCED MOTION */
+/* ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .glitch,
+  .character-card__scan,
+  .identity-portrait__scan,
+  .secret-signal__beacon,
+  .secret-signal__radar-line,
+  .secret-signal__radar-ring,
+  .scroll-progress__scanner {
+    animation: none !important;
+  }
+
+  .character-card__image,
+  .nav-link,
+  .secret-os-action,
+  .character-card {
+    transition-duration:
+      0.01ms !important;
+  }
+}
+
+
+/* ========================================================= */
+/* TOUCH DEVICES */
+/* ========================================================= */
+
+@media (
+  hover: none
+) and (
+  pointer: coarse
+) {
+  .character-card:hover
+  .character-card__image {
+    transform:
+      none;
+
+    filter:
+      grayscale(1)
+      contrast(1.06)
+      brightness(0.72);
+  }
+
+  .nav-link:hover::after {
+    transform:
+      none;
+  }
+}

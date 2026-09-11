@@ -1,12 +1,19 @@
-import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import {
+  useEffect,
+} from "react";
+
+import {
+  useTranslation,
+} from "react-i18next";
 
 function CharacterModal({
   character,
   onClose,
 }) {
   const { t } =
-    useTranslation("characters");
+    useTranslation(
+      "characters",
+    );
 
   useEffect(() => {
     if (!character) {
@@ -16,14 +23,18 @@ function CharacterModal({
     const previousOverflow =
       document.body.style.overflow;
 
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
+    document.body.style.overflow =
+      "hidden";
+
+    const handleKeyDown = (
+      event,
+    ) => {
+      if (
+        event.key === "Escape"
+      ) {
         onClose();
       }
     };
-
-    document.body.style.overflow =
-      "hidden";
 
     window.addEventListener(
       "keydown",
@@ -31,24 +42,24 @@ function CharacterModal({
     );
 
     return () => {
-      document.body.style.overflow =
-        previousOverflow;
-
       window.removeEventListener(
         "keydown",
         handleKeyDown,
       );
+
+      document.body.style.overflow =
+        previousOverflow;
     };
-  }, [character, onClose]);
+  }, [
+    character,
+    onClose,
+  ]);
 
   /*
    * MUHIM:
-   * character null bo'lsa shu yerning
-   * o'zida render to'xtaydi.
-   *
-   * Shundan keyingina character.image,
-   * character.name va boshqalarga
-   * murojaat qilamiz.
+   * character null bo'lsa
+   * character.image kabi qiymatlarga
+   * tegmaymiz.
    */
   if (!character) {
     return null;
@@ -59,137 +70,172 @@ function CharacterModal({
       className="character-modal"
       role="dialog"
       aria-modal="true"
-      aria-label={character.name}
+      aria-labelledby="character-modal-title"
     >
-      {/* Backdrop */}
+      {/* ================================================ */}
+      {/* BACKDROP */}
+      {/* ================================================ */}
 
       <button
         type="button"
         className="character-modal__backdrop"
-        onClick={onClose}
+        onClick={
+          onClose
+        }
         aria-label={t(
           "actions.close",
+          {
+            defaultValue:
+              "Yopish",
+          },
         )}
       />
 
-      {/* Modal */}
+      {/* ================================================ */}
+      {/* DIALOG */}
+      {/* ================================================ */}
 
-      <div className="character-modal__window">
-        {/* ===================== */}
-        {/* Header */}
-        {/* ===================== */}
+      <div className="character-modal__dialog">
+        {/* Close */}
 
-        <div className="character-modal__header">
-          <div>
-            <span className="character-modal__header-label">
-              {t("modal.subject")}
-            </span>
-
-            <strong>
-              {character.id}
-            </strong>
-          </div>
-
-          <button
-            type="button"
-            className="character-modal__close"
-            onClick={onClose}
-          >
-            [
-            {" "}
-            {t("actions.close")}
-            {" "}
-            ] ×
-          </button>
-        </div>
-
-        {/* ===================== */}
-        {/* Character Image */}
-        {/* ===================== */}
-
-        <div className="character-modal__visual">
-          <div
-            className="character-modal__image"
-            style={{
-              backgroundImage: `
-                linear-gradient(
-                  180deg,
-                  rgba(0, 0, 0, 0.02),
-                  rgba(0, 0, 0, 0.72)
-                ),
-                url("${character.image}")
-              `,
-            }}
-          />
-
-          <div className="character-modal__noise" />
-
-          <div className="character-modal__scan" />
-
-          {/* Camera corners */}
-
-          <div className="character-modal__corners">
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-
-          {/* Camera info */}
-
-          <div className="character-modal__camera">
-            <span>
-              CAM_PERSONNEL_07
-            </span>
-
-            <span>
-              REC ●
-            </span>
-          </div>
-
-          {/* Face target */}
-
-          <div className="character-modal__target">
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-
-          {/* Image footer */}
-
-          <div className="character-modal__image-footer">
-            <span>
-              FACIAL_MATCH
-            </span>
-
-            <span>
-              97.4%
-            </span>
-          </div>
-        </div>
-
-        {/* ===================== */}
-        {/* Information */}
-        {/* ===================== */}
-
-        <div className="character-modal__content">
-          <span className="character-modal__classification">
-            //{" "}
+        <button
+          type="button"
+          className="character-modal__close"
+          onClick={
+            onClose
+          }
+          aria-label={t(
+            "actions.close",
+            {
+              defaultValue:
+                "Yopish",
+            },
+          )}
+        >
+          <span>
             {t(
-              "modal.classification",
+              "actions.close",
+              {
+                defaultValue:
+                  "YOPISH",
+              },
             )}
           </span>
 
-          <span className="character-modal__file">
-            {character.file}
-          </span>
+          <strong>
+            ×
+          </strong>
+        </button>
+
+        {/* ============================================== */}
+        {/* LEFT / CHARACTER IMAGE */}
+        {/* ============================================== */}
+
+        <div className="character-modal__visual">
+          <img
+            className="character-modal__image"
+            src={
+              character.image
+            }
+            alt={
+              character.name
+            }
+            decoding="async"
+            draggable="false"
+          />
+
+          <div className="character-modal__image-shade" />
+
+          <div className="character-modal__image-noise" />
+
+          <div className="character-modal__scanline" />
+
+          {/* corners */}
+
+          <span className="character-modal__corner character-modal__corner--tl" />
+          <span className="character-modal__corner character-modal__corner--tr" />
+          <span className="character-modal__corner character-modal__corner--bl" />
+          <span className="character-modal__corner character-modal__corner--br" />
+
+          {/* top metadata */}
+
+          <div className="character-modal__visual-header">
+            <span>
+              {t(
+                "modal.classification",
+                {
+                  defaultValue:
+                    "CLASSIFIED",
+                },
+              )}
+            </span>
+
+            <strong>
+              REC
+              <i />
+            </strong>
+          </div>
+
+          {/* bottom metadata */}
+
+          <div className="character-modal__visual-footer">
+            <div>
+              <span>
+                FILE
+              </span>
+
+              <strong>
+                {
+                  character.file
+                }
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                STATUS
+              </span>
+
+              <strong>
+                {t(
+                  character.statusKey,
+                )}
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================== */}
+        {/* RIGHT / CONTENT */}
+        {/* ============================================== */}
+
+        <div className="character-modal__content">
+          <div className="character-modal__classification">
+            <span>
+              //
+            </span>
+
+            {t(
+              "modal.subject",
+              {
+                defaultValue:
+                  "MAXFIY MA'LUMOT",
+              },
+            )}
+
+            <strong>
+              {
+                character.file
+              }
+            </strong>
+          </div>
 
           <h2
-            className="character-modal__name glitch"
-            data-text={character.name}
+            id="character-modal-title"
           >
-            {character.name}
+            {
+              character.name
+            }
           </h2>
 
           <p className="character-modal__description">
@@ -198,12 +244,20 @@ function CharacterModal({
             )}
           </p>
 
-          {/* Fields */}
+          {/* ============================================ */}
+          {/* INFORMATION */}
+          {/* ============================================ */}
 
-          <div className="character-modal__fields">
-            <div className="character-modal__field">
+          <div className="character-modal__details">
+            <div className="character-modal__detail">
               <span>
-                {t("fields.role")}
+                {t(
+                  "fields.role",
+                  {
+                    defaultValue:
+                      "LAVOZIM",
+                  },
+                )}
               </span>
 
               <strong>
@@ -213,10 +267,14 @@ function CharacterModal({
               </strong>
             </div>
 
-            <div className="character-modal__field">
+            <div className="character-modal__detail">
               <span>
                 {t(
                   "fields.affiliation",
+                  {
+                    defaultValue:
+                      "ALOQA",
+                  },
                 )}
               </span>
 
@@ -227,21 +285,33 @@ function CharacterModal({
               </strong>
             </div>
 
-            <div className="character-modal__field">
+            <div className="character-modal__detail">
               <span>
-                {t("fields.status")}
+                {t(
+                  "fields.status",
+                  {
+                    defaultValue:
+                      "HOLAT",
+                  },
+                )}
               </span>
 
-              <strong className="character-modal__danger">
+              <strong>
                 {t(
                   character.statusKey,
                 )}
               </strong>
             </div>
 
-            <div className="character-modal__field">
+            <div className="character-modal__detail">
               <span>
-                {t("fields.profile")}
+                {t(
+                  "fields.profile",
+                  {
+                    defaultValue:
+                      "PROFIL",
+                  },
+                )}
               </span>
 
               <strong>
@@ -252,44 +322,65 @@ function CharacterModal({
             </div>
           </div>
 
-          {/* Fake terminal */}
+          {/* ============================================ */}
+          {/* WARNING */}
+          {/* ============================================ */}
+
+          <div className="character-modal__warning">
+            <span>
+              !
+            </span>
+
+            <div>
+              <strong>
+                SURVEILLANCE_ACTIVE
+              </strong>
+
+              <p>
+                {t(
+                  "modal.warning",
+                  {
+                    defaultValue:
+                      "Ushbu shaxs tizim tomonidan kuzatuv ostida.",
+                  },
+                )}
+              </p>
+            </div>
+          </div>
+
+          {/* ============================================ */}
+          {/* TERMINAL */}
+          {/* ============================================ */}
 
           <div className="character-modal__terminal">
-            <span className="character-modal__terminal-user">
-              root@fsociety
+            <span>
+              root@fsociety:~$
             </span>
 
-            <span>
-              :
-            </span>
-
-            <span>
-              ~$
-            </span>
-
-            <span>
+            <strong>
               cat{" "}
-              {character.file.toLowerCase()}
+              {
+                character.file
+              }
               .profile
+            </strong>
+
+            <i />
+          </div>
+
+          {/* bottom */}
+
+          <div className="character-modal__bottom">
+            <span>
+              FSOCIETY //
+              PERSONNEL_DATABASE
             </span>
 
-            <span className="terminal-cursor" />
+            <span>
+              AES-256 //
+              ENCRYPTED
+            </span>
           </div>
-        </div>
-
-        {/* ===================== */}
-        {/* Footer */}
-        {/* ===================== */}
-
-        <div className="character-modal__footer">
-          <span>
-            FSOCIETY //
-            PERSONNEL_DATABASE
-          </span>
-
-          <span>
-            {t("modal.warning")}
-          </span>
         </div>
       </div>
     </div>

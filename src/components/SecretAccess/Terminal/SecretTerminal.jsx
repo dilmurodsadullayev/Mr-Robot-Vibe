@@ -7,25 +7,11 @@ import {
   useTranslation,
 } from "react-i18next";
 
-const INITIAL_LINES = [
-  {
-    id: 1,
-    type: "system",
-    text:
-      "FSOCIETY ROOT TERMINAL v1.0",
-  },
-  {
-    id: 2,
-    type: "system",
-    text:
-      'Type "help" to list available commands.',
-  },
-];
-
 function SecretTerminal({
   accessLevel,
   completedActions,
   completeAction,
+  onFinalProtocol,
 }) {
   const { t } =
     useTranslation(
@@ -40,9 +26,23 @@ function SecretTerminal({
   const [
     lines,
     setLines,
-  ] = useState(
-    INITIAL_LINES,
-  );
+  ] = useState(() => [
+    {
+      id: 1,
+      type: "system",
+      text: t(
+        "os.terminal.intro",
+      ),
+    },
+
+    {
+      id: 2,
+      type: "system",
+      text: t(
+        "os.terminal.helpHint",
+      ),
+    },
+  ]);
 
   const nextId =
     useRef(3);
@@ -53,16 +53,22 @@ function SecretTerminal({
     setLines(
       (current) => [
         ...current,
+
         ...newLines.map(
           (line) => ({
             id:
               nextId.current++,
+
             ...line,
           }),
         ),
       ],
     );
   };
+
+  /* ============================= */
+  /* Commands */
+  /* ============================= */
 
   const runCommand = (
     rawCommand,
@@ -79,12 +85,17 @@ function SecretTerminal({
     addLines([
       {
         type: "command",
+
         text:
           `root@fsociety:~$ ${rawCommand}`,
       },
     ]);
 
-    switch (normalized) {
+    switch (
+      normalized
+    ) {
+      /* HELP */
+
       case "help":
         addLines([
           {
@@ -120,6 +131,21 @@ function SecretTerminal({
           {
             type: "output",
             text:
+              "history   - session history",
+          },
+          {
+            type: "output",
+            text:
+              "date      - system timestamp",
+          },
+          {
+            type: "output",
+            text:
+              "echo      - print text",
+          },
+          {
+            type: "output",
+            text:
               "final     - execute final protocol",
           },
           {
@@ -128,7 +154,10 @@ function SecretTerminal({
               "clear     - clear terminal",
           },
         ]);
+
         break;
+
+      /* WHOAMI */
 
       case "whoami":
         addLines([
@@ -137,18 +166,29 @@ function SecretTerminal({
             text:
               "friend",
           },
+
           {
             type: "output",
             text:
               "IDENTITY: VARIABLE",
           },
+
           {
             type: "output",
             text:
               "CLEARANCE: ROOT",
           },
+
+          {
+            type: "output",
+            text:
+              "NODE: FS_01",
+          },
         ]);
+
         break;
+
+      /* STATUS */
 
       case "status":
         addLines([
@@ -157,48 +197,66 @@ function SecretTerminal({
             text:
               "SYSTEM ONLINE",
           },
+
           {
             type: "output",
             text:
               "ENCRYPTION: AES-256",
           },
+
           {
             type: "output",
             text:
               "PRIVATE NODE: ACTIVE",
           },
+
           {
             type: "output",
             text:
               "TRACE STATUS: MONITORED",
           },
+
+          {
+            type: "output",
+            text:
+              `ACCESS: ${accessLevel}%`,
+          },
         ]);
+
         break;
+
+      /* NODES */
 
       case "nodes":
         addLines([
           {
             type: "output",
             text:
-              "FS_NODE_01       ONLINE      98%",
+              "FS_NODE_01       ONLINE       98%",
           },
+
           {
             type: "output",
             text:
-              "ECORP_GATEWAY    MONITORED   74%",
+              "ECORP_GATEWAY    MONITORED    74%",
           },
+
           {
             type: "output",
             text:
-              "RELAY_05         UNSTABLE    41%",
+              "RELAY_05         UNSTABLE     41%",
           },
+
           {
             type: "warning",
             text:
-              "UNKNOWN_NODE     ENCRYPTED   ???",
+              "UNKNOWN_NODE     ENCRYPTED    ???",
           },
         ]);
+
         break;
+
+      /* FILES */
 
       case "files":
         addLines([
@@ -207,28 +265,35 @@ function SecretTerminal({
             text:
               "FS-001  identity_fragment.txt",
           },
+
           {
             type: "output",
             text:
               "FS-002  node_report.log",
           },
+
           {
             type: "success",
             text:
               "FS-003  red_wheelbarrow.enc [DECRYPTED]",
           },
+
           {
             type: "warning",
             text:
               "FS-004  corrupted_memory.dat",
           },
+
           {
-            type: "output",
+            type: "success",
             text:
               "FS-005  final_message.txt [ROOT]",
           },
         ]);
+
         break;
+
+      /* ACCESS */
 
       case "access":
         addLines([
@@ -237,19 +302,84 @@ function SecretTerminal({
             text:
               `ACCESS LEVEL: ${accessLevel}%`,
           },
+
           {
             type: "output",
             text:
               `COMPLETED ACTIONS: ${completedActions.length}`,
           },
+
+          {
+            type: "output",
+            text:
+              "CLEARANCE: ROOT",
+          },
         ]);
+
         break;
 
-      case "final":
-        if (
-          !completedActions.includes(
+      /* HISTORY */
+
+      case "history":
+        addLines([
+          {
+            type: "output",
+            text:
+              "[01] IDENTITY_ANALYSIS",
+          },
+
+          {
+            type: "output",
+            text:
+              "[02] NETWORK_SCAN",
+          },
+
+          {
+            type: "output",
+            text:
+              "[03] KEY_EXTRACTION",
+          },
+
+          {
+            type: "output",
+            text:
+              "[04] FS-003_DECRYPTION",
+          },
+        ]);
+
+        break;
+
+      /* DATE */
+
+      case "date":
+        addLines([
+          {
+            type: "output",
+            text:
+              new Date()
+                .toLocaleString(),
+          },
+        ]);
+
+        break;
+
+      /* CLEAR */
+
+      case "clear":
+        setLines([]);
+
+        break;
+
+      /* FINAL */
+
+      case "final": {
+        const alreadyCompleted =
+          completedActions.includes(
             "final_protocol",
-          )
+          );
+
+        if (
+          !alreadyCompleted
         ) {
           completeAction(
             "final_protocol",
@@ -263,54 +393,88 @@ function SecretTerminal({
             text:
               "EXECUTING FINAL_PROTOCOL...",
           },
+
+          {
+            type: "output",
+            text:
+              "VERIFYING ROOT CLEARANCE...",
+          },
+
           {
             type: "success",
             text:
               "ROOT CLEARANCE: 100%",
           },
+
           {
             type: "success",
             text:
               "FINAL_MESSAGE UNLOCKED",
           },
+
           {
             type: "output",
             text:
               "HELLO, FRIEND.",
           },
-          {
-            type: "output",
-            text:
-              "YOU WERE NEVER JUST VISITING THE SYSTEM.",
-          },
-          {
-            type: "output",
-            text:
-              "YOU WERE PART OF IT.",
-          },
         ]);
+
+        window.setTimeout(
+          () => {
+            onFinalProtocol();
+          },
+          1200,
+        );
+
         break;
+      }
 
-      case "clear":
-        setLines([]);
+      default: {
+        /*
+         * echo hello
+         */
 
-        break;
+        if (
+          normalized.startsWith(
+            "echo ",
+          )
+        ) {
+          addLines([
+            {
+              type: "output",
 
-      default:
+              text:
+                rawCommand
+                  .trim()
+                  .slice(5),
+            },
+          ]);
+
+          break;
+        }
+
         addLines([
           {
             type: "error",
+
             text:
               `command not found: ${normalized}`,
           },
+
           {
             type: "output",
+
             text:
               'type "help" for available commands',
           },
         ]);
+      }
     }
   };
+
+  /* ============================= */
+  /* Submit */
+  /* ============================= */
 
   const handleSubmit = (
     event,
@@ -333,10 +497,15 @@ function SecretTerminal({
 
   return (
     <div className="secret-terminal">
+      {/* Header */}
+
       <div className="secret-terminal__header">
         <div>
           <span className="secret-module-kicker">
-            // ROOT_TERMINAL
+            //{" "}
+            {t(
+              "os.terminal.kicker",
+            )}
           </span>
 
           <h2>
@@ -354,7 +523,9 @@ function SecretTerminal({
 
         <div className="secret-terminal__root">
           <span>
-            CLEARANCE
+            {t(
+              "os.terminal.clearance",
+            )}
           </span>
 
           <strong>
@@ -364,6 +535,8 @@ function SecretTerminal({
           <i />
         </div>
       </div>
+
+      {/* Terminal */}
 
       <div className="secret-terminal__window">
         <div className="secret-terminal__window-bar">
@@ -418,12 +591,15 @@ function SecretTerminal({
 
           <input
             type="text"
-            value={command}
+            value={
+              command
+            }
             onChange={(
               event,
             ) =>
               setCommand(
-                event.target.value,
+                event.target
+                  .value,
               )
             }
             autoComplete="off"

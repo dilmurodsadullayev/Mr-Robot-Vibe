@@ -4,19 +4,20 @@ import {
 } from "react";
 
 import IntroLoader from "./components/IntroLoader/IntroLoader";
+import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+import SEOController from "./components/SEOController/SEOController";
 import SecretAccess from "./components/SecretAccess/SecretAccess";
 import SecretSignalHint from "./components/SecretSignalHint/SecretSignalHint";
 
 import MainLayout from "./layouts/MainLayout";
-
 import HomePage from "./pages/Home/HomePage";
 
 import useSecretSequence from "./hooks/useSecretSequence";
 
 function App() {
-  /* ============================= */
-  /* Intro */
-  /* ============================= */
+  /* ========================================================= */
+  /* INTRO */
+  /* ========================================================= */
 
   const [
     introCompleted,
@@ -28,22 +29,36 @@ function App() {
       setIntroCompleted(true);
     }, []);
 
-  /* ============================= */
-  /* Secret Access */
-  /* ============================= */
+  /* ========================================================= */
+  /* SECRET FSOCIETY ACCESS */
+  /* ========================================================= */
 
   const {
     unlocked,
     reset,
   } = useSecretSequence();
 
+  /* ========================================================= */
+  /* RENDER */
+  /* ========================================================= */
+
   return (
     <>
-      {/* Global Noise */}
+      {/* ===================================================== */}
+      {/* SEO / DOCUMENT METADATA */}
+      {/* ===================================================== */}
+
+      <SEOController />
+
+      {/* ===================================================== */}
+      {/* GLOBAL VISUAL NOISE */}
+      {/* ===================================================== */}
 
       <div className="noise" />
 
-      {/* Intro */}
+      {/* ===================================================== */}
+      {/* INTRO BOOT SCREEN */}
+      {/* ===================================================== */}
 
       {!introCompleted && (
         <IntroLoader
@@ -53,7 +68,9 @@ function App() {
         />
       )}
 
-      {/* Website */}
+      {/* ===================================================== */}
+      {/* MAIN WEBSITE */}
+      {/* ===================================================== */}
 
       {introCompleted && (
         <>
@@ -61,15 +78,23 @@ function App() {
             <HomePage />
           </MainLayout>
 
-          {/* Secret clue */}
+          {/* ================================================= */}
+          {/* FLOATING WEBSITE UI */}
+          {/* ================================================= */}
 
           {!unlocked && (
-            <SecretSignalHint />
+            <>
+              <ScrollProgress />
+
+              <SecretSignalHint />
+            </>
           )}
         </>
       )}
 
-      {/* FSociety secret network */}
+      {/* ===================================================== */}
+      {/* FSOCIETY SECRET SYSTEM */}
+      {/* ===================================================== */}
 
       <SecretAccess
         open={unlocked}

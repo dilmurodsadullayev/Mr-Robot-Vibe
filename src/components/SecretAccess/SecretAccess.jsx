@@ -9,6 +9,53 @@ import SecretShell from "./SecretShell";
 
 const BOOT_DURATION = 1700;
 
+const STORAGE_KEY =
+  "mr-robot-vibe-secret-progress";
+
+const DEFAULT_PROGRESS = {
+  accessLevel: 25,
+  completedActions: [],
+};
+
+function loadProgress() {
+  try {
+    const saved =
+      localStorage.getItem(
+        STORAGE_KEY,
+      );
+
+    if (!saved) {
+      return DEFAULT_PROGRESS;
+    }
+
+    const parsed =
+      JSON.parse(saved);
+
+    return {
+      accessLevel:
+        typeof parsed.accessLevel ===
+        "number"
+          ? Math.min(
+              Math.max(
+                parsed.accessLevel,
+                25,
+              ),
+              100,
+            )
+          : 25,
+
+      completedActions:
+        Array.isArray(
+          parsed.completedActions,
+        )
+          ? parsed.completedActions
+          : [],
+    };
+  } catch {
+    return DEFAULT_PROGRESS;
+  }
+}
+
 function SecretAccess({
   open,
   onClose,
@@ -32,19 +79,29 @@ function SecretAccessSession({
     setBootCompleted,
   ] = useState(false);
 
-  /*
-   * Access level va completed actions
-   * endi bitta state ichida.
-   *
-   * Shu bilan nested setState yo'q.
-   */
   const [
     progress,
     setProgress,
-  ] = useState({
-    accessLevel: 25,
-    completedActions: [],
-  });
+  ] = useState(
+    loadProgress,
+  );
+
+  /* ============================= */
+  /* Persist Progress */
+  /* ============================= */
+
+  useEffect(() => {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(
+        progress,
+      ),
+    );
+  }, [progress]);
+
+  /* ============================= */
+  /* Secret Session */
+  /* ============================= */
 
   useEffect(() => {
     const previousOverflow =
@@ -61,7 +118,9 @@ function SecretAccessSession({
     const handleKeyDown = (
       event,
     ) => {
-      if (event.key === "Escape") {
+      if (
+        event.key === "Escape"
+      ) {
         onClose();
       }
     };
@@ -72,7 +131,9 @@ function SecretAccessSession({
     );
 
     return () => {
-      window.clearTimeout(timer);
+      window.clearTimeout(
+        timer,
+      );
 
       window.removeEventListener(
         "keydown",
@@ -83,6 +144,10 @@ function SecretAccessSession({
         previousOverflow;
     };
   }, [onClose]);
+
+  /* ============================= */
+  /* Complete Mission */
+  /* ============================= */
 
   const completeAction =
     useCallback(
@@ -121,15 +186,11 @@ function SecretAccessSession({
 
   return (
     <div className="secret-access">
-      {/* Background effects */}
-
       <div className="secret-access__noise" />
 
       <div className="secret-access__scanlines" />
 
       <div className="secret-access__glow" />
-
-      {/* Content */}
 
       {!bootCompleted ? (
         <SecretBoot />

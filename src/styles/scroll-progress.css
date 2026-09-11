@@ -1,0 +1,387 @@
+/* ========================================================= */
+/* SYSTEM SCROLL PROGRESS */
+/* ========================================================= */
+
+.scroll-progress {
+  position: fixed;
+
+  right: 18px;
+  top: 50%;
+
+  z-index: 7000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+
+  transform:
+    translateY(-50%);
+}
+
+
+/* ========================================================= */
+/* META */
+/* ========================================================= */
+
+.scroll-progress__meta {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 3px;
+}
+
+.scroll-progress__meta span {
+  color: #27272a;
+
+  font-size: 5px;
+
+  letter-spacing: 0.18em;
+}
+
+.scroll-progress__meta strong {
+  color: #71717a;
+
+  font-size: 6px;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* ========================================================= */
+/* RAIL */
+/* ========================================================= */
+
+.scroll-progress__rail {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  width: 32px;
+  height: 250px;
+
+  padding:
+    7px 0;
+}
+
+.scroll-progress__rail::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 1px;
+  height: 100%;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.045
+    );
+}
+
+
+/* ========================================================= */
+/* FILL */
+/* ========================================================= */
+
+.scroll-progress__fill {
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 1px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      180deg,
+      #7f1d1d,
+      #dc2626
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(
+      220,
+      38,
+      38,
+      0.35
+    );
+
+  transition:
+    height
+    0.08s linear;
+}
+
+
+/* ========================================================= */
+/* SCANNER */
+/* ========================================================= */
+
+.scroll-progress__scanner {
+  position: absolute;
+
+  left: 50%;
+
+  z-index: 3;
+
+  width: 9px;
+  height: 9px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border:
+    1px solid
+    rgba(
+      239,
+      68,
+      68,
+      0.6
+    );
+
+  border-radius: 50%;
+
+  background:
+    #050505;
+
+  box-shadow:
+    0 0 14px
+    rgba(
+      239,
+      68,
+      68,
+      0.55
+    );
+
+  transition:
+    top
+    0.08s linear;
+}
+
+.scroll-progress__scanner::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 3px;
+  height: 3px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border-radius: 50%;
+
+  background:
+    #ef4444;
+}
+
+
+/* ========================================================= */
+/* SECTION POINTS */
+/* ========================================================= */
+
+.scroll-progress__point {
+  position: relative;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.scroll-progress__point
+> span {
+  width: 5px;
+  height: 5px;
+
+  border:
+    1px solid
+    #3f3f46;
+
+  border-radius: 50%;
+
+  background:
+    #050505;
+
+  transition:
+    width
+      0.2s ease,
+    height
+      0.2s ease,
+    border-color
+      0.2s ease,
+    box-shadow
+      0.2s ease;
+}
+
+.scroll-progress__point
+strong {
+  position: absolute;
+
+  right: 27px;
+
+  opacity: 0;
+
+  color: #52525b;
+
+  font-size: 5px;
+
+  letter-spacing: 0.12em;
+
+  transition:
+    opacity
+      0.2s ease,
+    transform
+      0.2s ease;
+
+  transform:
+    translateX(5px);
+}
+
+.scroll-progress__point:hover
+strong,
+.scroll-progress__point--active
+strong {
+  opacity: 1;
+
+  transform:
+    translateX(0);
+}
+
+.scroll-progress__point:hover
+> span {
+  border-color:
+    #7f1d1d;
+}
+
+.scroll-progress__point--active
+> span {
+  width: 8px;
+  height: 8px;
+
+  border-color:
+    #dc2626;
+
+  background:
+    #7f1d1d;
+
+  box-shadow:
+    0 0 12px
+    rgba(
+      220,
+      38,
+      38,
+      0.6
+    );
+}
+
+
+/* ========================================================= */
+/* LABEL */
+/* ========================================================= */
+
+.scroll-progress__label {
+  writing-mode:
+    vertical-rl;
+
+  color: #27272a;
+
+  font-size: 5px;
+
+  letter-spacing: 0.2em;
+}
+
+
+/* ========================================================= */
+/* TABLET */
+/* ========================================================= */
+
+@media (
+  max-width: 1100px
+) {
+  .scroll-progress {
+    right: 10px;
+  }
+
+  .scroll-progress__rail {
+    height: 210px;
+  }
+}
+
+
+/* ========================================================= */
+/* MOBILE */
+/* ========================================================= */
+
+@media (
+  max-width: 760px
+) {
+  .scroll-progress {
+    display: none;
+  }
+}
+
+
+/* ========================================================= */
+/* REDUCED MOTION */
+/* ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .scroll-progress__fill,
+  .scroll-progress__scanner,
+  .scroll-progress__point span,
+  .scroll-progress__point strong {
+    transition: none;
+  }
+}

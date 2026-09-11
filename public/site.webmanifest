@@ -1,0 +1,18 @@
+{
+  "name": "Mr. Robot Vibe",
+  "short_name": "MR.ROBOT",
+  "description": "An interactive fsociety-inspired fan experience.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "lang": "uz",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

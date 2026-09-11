@@ -1655,3 +1655,343 @@ span,
     height: 400px;
   }
 }
+
+/* ========================================================= */
+/* SERIES STATS READABILITY / TYPOGRAPHY FIX */
+/* ========================================================= */
+
+/*
+ * Oldingi cinematic CSS ichidagi
+ * 5px / 6px / 7px fontlarni
+ * desktop uchun o'qiladigan holatga olib keladi.
+ */
+
+.series-stats {
+  font-size: 14px;
+}
+
+
+/* ========================================================= */
+/* HEADER / LABELS */
+/* ========================================================= */
+
+.series-stats__label,
+.series-stats__kicker,
+.series-stats__eyebrow {
+  font-size: 9px !important;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.series-stats__header-number,
+.series-stats__classification {
+  font-size: 8px !important;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* ========================================================= */
+/* MAIN TITLE */
+/* ========================================================= */
+
+.series-stats__title {
+  font-size:
+    clamp(
+      2.8rem,
+      5vw,
+      5.5rem
+    );
+
+  line-height: 0.92;
+}
+
+.series-stats__description {
+  max-width: 760px;
+
+  font-size: 13px !important;
+
+  line-height: 1.8;
+}
+
+
+/* ========================================================= */
+/* POSTER / LEFT PANEL */
+/* ========================================================= */
+
+.series-poster__code,
+.series-poster__rec,
+.series-poster__meta,
+.series-poster__status {
+  font-size: 8px !important;
+
+  letter-spacing: 0.14em;
+}
+
+.series-poster__title {
+  font-size: 18px !important;
+
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+}
+
+.series-poster__subtitle {
+  font-size: 10px !important;
+}
+
+
+/* ========================================================= */
+/* SERIES INFO */
+/* ========================================================= */
+
+.series-info__title {
+  font-size: 11px !important;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.series-info__row span {
+  font-size: 8px !important;
+
+  letter-spacing: 0.12em;
+}
+
+.series-info__row strong {
+  font-size: 10px !important;
+
+  font-weight: 800;
+}
+
+
+/* ========================================================= */
+/* SEASON RATINGS */
+/* ========================================================= */
+
+.season-ratings__header span,
+.season-ratings__header strong {
+  font-size: 9px !important;
+
+  letter-spacing: 0.13em;
+}
+
+.season-rating__name {
+  font-size: 11px !important;
+
+  font-weight: 900;
+}
+
+.season-rating__year {
+  font-size: 7px !important;
+}
+
+.season-rating__score {
+  min-width: 42px;
+
+  font-size: 11px !important;
+
+  font-weight: 900;
+}
+
+.season-rating__track {
+  height: 9px;
+}
+
+
+/* ========================================================= */
+/* HIGHLIGHT / SIGNAL CARDS */
+/* ========================================================= */
+
+.rating-signal__meta,
+.rating-signal__source,
+.rating-signal__actions {
+  font-size: 8px !important;
+
+  letter-spacing: 0.1em;
+}
+
+.rating-signal__vote {
+  font-size: 9px !important;
+}
+
+.rating-signal__title {
+  font-size: 16px !important;
+
+  line-height: 1.4;
+}
+
+.rating-signal__description {
+  font-size: 11px !important;
+
+  line-height: 1.7;
+}
+
+.rating-signal__score {
+  font-size: 11px !important;
+
+  font-weight: 900;
+}
+
+
+/* ========================================================= */
+/* RATINGS GRID */
+/* ========================================================= */
+
+.ratings-grid__header span {
+  font-size: 8px !important;
+
+  letter-spacing: 0.15em;
+}
+
+.ratings-grid__header h3 {
+  font-size: 23px !important;
+
+  font-weight: 900;
+}
+
+.rating-season-column__header span {
+  font-size: 8px !important;
+}
+
+.rating-season-column__header strong {
+  font-size: 18px !important;
+
+  font-weight: 900;
+}
+
+.rating-episode__number {
+  font-size: 8px !important;
+}
+
+.rating-episode__score {
+  font-size: 10px !important;
+
+  font-weight: 900;
+}
+
+
+/* ========================================================= */
+/* GENERIC SMALL TEXT FIX */
+/* ========================================================= */
+
+/*
+ * SeriesStats ichidagi juda kichik
+ * metadata matnlarini minimum darajaga ko'taramiz.
+ */
+
+.series-stats small {
+  font-size: 8px;
+}
+
+.series-stats button {
+  font-size: 9px;
+}
+
+
+/* ========================================================= */
+/* LARGE DESKTOP */
+/* ========================================================= */
+
+@media (min-width: 1400px) {
+  .series-stats__description {
+    font-size: 14px !important;
+  }
+
+  .series-info__row span {
+    font-size: 9px !important;
+  }
+
+  .series-info__row strong {
+    font-size: 11px !important;
+  }
+
+  .season-rating__name {
+    font-size: 12px !important;
+  }
+
+  .season-rating__score {
+    font-size: 12px !important;
+  }
+
+  .rating-signal__title {
+    font-size: 17px !important;
+  }
+
+  .rating-signal__description {
+    font-size: 12px !important;
+  }
+}
+
+
+/* ========================================================= */
+/* TABLET */
+/* ========================================================= */
+
+@media (max-width: 1024px) {
+  .series-stats__description {
+    font-size: 12px !important;
+  }
+
+  .rating-signal__title {
+    font-size: 15px !important;
+  }
+
+  .rating-signal__description {
+    font-size: 10px !important;
+  }
+}
+
+
+/* ========================================================= */
+/* MOBILE */
+/* ========================================================= */
+
+@media (max-width: 640px) {
+  .series-stats__label,
+  .series-stats__kicker,
+  .series-stats__eyebrow {
+    font-size: 8px !important;
+  }
+
+  .series-stats__description {
+    font-size: 12px !important;
+  }
+
+  .series-info__row span {
+    font-size: 8px !important;
+  }
+
+  .series-info__row strong {
+    font-size: 10px !important;
+  }
+
+  .season-rating__name {
+    font-size: 10px !important;
+  }
+
+  .season-rating__score {
+    font-size: 11px !important;
+  }
+
+  .rating-signal__meta,
+  .rating-signal__source,
+  .rating-signal__actions {
+    font-size: 7px !important;
+  }
+
+  .rating-signal__title {
+    font-size: 15px !important;
+  }
+
+  .rating-signal__description {
+    font-size: 11px !important;
+  }
+
+  .ratings-grid__header h3 {
+    font-size: 20px !important;
+  }
+}

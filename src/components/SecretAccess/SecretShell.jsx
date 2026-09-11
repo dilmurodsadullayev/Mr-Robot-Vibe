@@ -9,6 +9,7 @@ import {
   useTranslation,
 } from "react-i18next";
 
+import FinalProtocol from "./FinalProtocol";
 import SecretSidebar from "./SecretSidebar";
 
 import SecretDashboard from "./Dashboard/SecretDashboard";
@@ -65,6 +66,11 @@ function SecretShell({
     "dashboard",
   );
 
+  const [
+    finalProtocolOpen,
+    setFinalProtocolOpen,
+  ] = useState(false);
+
   const workspaceRef =
     useRef(null);
 
@@ -99,17 +105,15 @@ function SecretShell({
   /* ======================================================= */
 
   useEffect(() => {
-    if (
-      !workspaceRef.current
-    ) {
+    const workspace =
+      workspaceRef.current;
+
+    if (!workspace) {
       return;
     }
 
-    workspaceRef.current.scrollTop =
-      0;
-
-    workspaceRef.current.scrollLeft =
-      0;
+    workspace.scrollTop = 0;
+    workspace.scrollLeft = 0;
   }, [activeModule]);
 
   /* ======================================================= */
@@ -160,10 +164,9 @@ function SecretShell({
   /* ======================================================= */
 
   const renderModule = () => {
-    /*
-     * Access yetarli bo'lmasa
-     * avval lock screen chiqaramiz.
-     */
+    /* ===================================================== */
+    /* Locked Module */
+    /* ===================================================== */
 
     if (currentLocked) {
       return (
@@ -196,12 +199,16 @@ function SecretShell({
       );
     }
 
+    /* ===================================================== */
+    /* Active Modules */
+    /* ===================================================== */
+
     switch (
       activeModule
     ) {
-      /* =================================================== */
-      /* DASHBOARD */
-      /* =================================================== */
+      /* ============================= */
+      /* Dashboard */
+      /* ============================= */
 
       case "dashboard":
         return (
@@ -218,9 +225,9 @@ function SecretShell({
           />
         );
 
-      /* =================================================== */
-      /* IDENTITY */
-      /* =================================================== */
+      /* ============================= */
+      /* Identity */
+      /* ============================= */
 
       case "identity":
         return (
@@ -231,9 +238,9 @@ function SecretShell({
           />
         );
 
-      /* =================================================== */
-      /* NETWORK */
-      /* =================================================== */
+      /* ============================= */
+      /* Network */
+      /* ============================= */
 
       case "network":
         return (
@@ -244,9 +251,9 @@ function SecretShell({
           />
         );
 
-      /* =================================================== */
-      /* CLASSIFIED FILES */
-      /* =================================================== */
+      /* ============================= */
+      /* Classified Files */
+      /* ============================= */
 
       case "files":
         return (
@@ -260,9 +267,9 @@ function SecretShell({
           />
         );
 
-      /* =================================================== */
-      /* DECRYPT */
-      /* =================================================== */
+      /* ============================= */
+      /* Decrypt */
+      /* ============================= */
 
       case "decrypt":
         return (
@@ -276,18 +283,18 @@ function SecretShell({
           />
         );
 
-      /* =================================================== */
-      /* LOGS */
-      /* =================================================== */
+      /* ============================= */
+      /* Logs */
+      /* ============================= */
 
       case "logs":
         return (
           <SecretLogs />
         );
 
-      /* =================================================== */
-      /* ROOT TERMINAL */
-      /* =================================================== */
+      /* ============================= */
+      /* Root Terminal */
+      /* ============================= */
 
       case "terminal":
         return (
@@ -301,12 +308,17 @@ function SecretShell({
             completeAction={
               completeAction
             }
+            onFinalProtocol={() =>
+              setFinalProtocolOpen(
+                true,
+              )
+            }
           />
         );
 
-      /* =================================================== */
-      /* FALLBACK */
-      /* =================================================== */
+      /* ============================= */
+      /* Fallback */
+      /* ============================= */
 
       default:
         return (
@@ -326,7 +338,26 @@ function SecretShell({
   };
 
   /* ======================================================= */
-  /* RENDER */
+  /* FINAL PROTOCOL */
+  /* ======================================================= */
+
+  if (finalProtocolOpen) {
+    return (
+      <FinalProtocol
+        onReturn={() =>
+          setFinalProtocolOpen(
+            false,
+          )
+        }
+        onLogout={
+          onLogout
+        }
+      />
+    );
+  }
+
+  /* ======================================================= */
+  /* MAIN OS */
   /* ======================================================= */
 
   return (
@@ -400,7 +431,7 @@ function SecretShell({
         {/* ================================================= */}
 
         <main className="secret-os__workspace">
-          {/* Workspace header */}
+          {/* Workspace Header */}
 
           <div className="secret-os__workspace-header">
             <div>
@@ -412,6 +443,7 @@ function SecretShell({
                       "PRIVATE_NODE",
                   },
                 )}
+
                 {" // "}
               </span>
 
@@ -441,7 +473,7 @@ function SecretShell({
             </div>
           </div>
 
-          {/* Workspace content */}
+          {/* Workspace Content */}
 
           <div
             ref={
@@ -478,7 +510,9 @@ function SecretShell({
                 "SESSION",
             },
           )}
+
           {" // "}
+
           0xF5C0
         </span>
 
@@ -486,7 +520,9 @@ function SecretShell({
           {
             completedActions.length
           }
+
           {" "}
+
           {t(
             "os.shell.actions",
             {
@@ -504,7 +540,9 @@ function SecretShell({
                 "CLEARANCE",
             },
           )}
+
           {" // "}
+
           {
             clearance
           }
@@ -549,7 +587,7 @@ function LockedModule({
 
   return (
     <div className="secret-locked-module">
-      {/* lock radar */}
+      {/* Lock signal */}
 
       <div className="secret-locked-module__signal">
         <div className="secret-locked-module__icon">
@@ -560,7 +598,7 @@ function LockedModule({
         <span />
       </div>
 
-      {/* label */}
+      {/* Label */}
 
       <span className="secret-module-kicker">
         //{" "}
@@ -573,19 +611,19 @@ function LockedModule({
         )}
       </span>
 
-      {/* title */}
+      {/* Title */}
 
       <h2>
         {title}
       </h2>
 
-      {/* description */}
+      {/* Description */}
 
       <p>
         {text}
       </p>
 
-      {/* access progress */}
+      {/* Progress */}
 
       <div className="secret-locked-module__progress">
         <div>
@@ -618,7 +656,7 @@ function LockedModule({
         </div>
       </div>
 
-      {/* requirement */}
+      {/* Requirement */}
 
       <div className="secret-locked-module__requirement">
         {t(
@@ -628,6 +666,7 @@ function LockedModule({
               "REQUIREMENT",
           },
         )}
+
         {" // "}
 
         <strong>
